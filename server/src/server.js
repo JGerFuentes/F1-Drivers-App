@@ -5,10 +5,10 @@ const cors = require("cors");
 
 const server = express();
 
-server.use(morgan("dev"));
-server.use(express.json());
-server.use(cors());
+server.use(morgan("dev")); //Permite ver las peticiones con más detalles en consola.
+server.use(express.json()); //Permite parsear la información que llega por body.
+server.use(cors()); //Permite hacer las peticiones desde el front.
 
-server.use(router);
+server.use(router); //Enrutamiento sin ruta raíz definida.
 
 module.exports = server;

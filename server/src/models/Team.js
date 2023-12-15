@@ -1,6 +1,7 @@
 const { DataTypes, UUIDV4 } = require('sequelize');
 
 module.exports = (sequelize) => {
+    //Definición del modelo Team.
     sequelize.define('Team', {
         pk: {
             type: DataTypes.UUID,
@@ -8,7 +9,7 @@ module.exports = (sequelize) => {
             allowNull: false,
             defaultValue: UUIDV4
         },
-        teams: {
+        team_name: {
             type: DataTypes.STRING,
             allowNull: false
         }

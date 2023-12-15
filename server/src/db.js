@@ -31,8 +31,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { Driver, Team } = sequelize.models;
 
 // Aca vendrian las relaciones
-Driver.belongsToMany(Team, { through: 'Driver_Team' });
-Team.belongsToMany(Driver, { through: 'Driver_Team' });
+Driver.belongsToMany(Team, { through: 'Drivers_Teams' });
+Team.belongsToMany(Driver, { through: 'Drivers_Teams' });
 
 
 module.exports = {
