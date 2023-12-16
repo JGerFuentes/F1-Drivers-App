@@ -10,7 +10,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: UUIDV4
     },
-    name: {
+    driver_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },

@@ -5,7 +5,7 @@ const router = Router();
 const getDrivers = require('../controllers/getDrivers');
 const getDetails = require('../controllers/getDetails');
 const getDriverByName = require('../controllers/getDriverByName');
-const getTeams = require('../controllers/getTeams');
+// const getTeams = require('../controllers/getTeams');
 const postDriver = require('../controllers/postDriver');
 
 //Definición de métodos con sus rutas y controladores asociados:
@@ -13,7 +13,7 @@ const postDriver = require('../controllers/postDriver');
 router.get('/drivers', getDrivers);
 router.get('/drivers/:id', getDetails);
 router.get('/drivers/name', getDriverByName);
-router.get('/drivers/teams', getTeams);
+// router.get('/drivers/teams', getTeams);
 router.post('/drivers', postDriver);
 
     //O:
