@@ -28,9 +28,10 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
+//Presentación de los modelos
 const { Driver, Team } = sequelize.models;
 
-// Aca vendrian las relaciones
+//Relaciones entre modelos
 Driver.belongsToMany(Team, { through: 'Drivers_Teams' });
 Team.belongsToMany(Driver, { through: 'Drivers_Teams' });
 
