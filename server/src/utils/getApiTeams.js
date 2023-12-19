@@ -12,7 +12,7 @@ const getApiTeams = async () => {
                 driverTeams.forEach(team => allApiTeams.add(team)); //Recorro los teams recuperados de cada driver y lo añado al Set 'allApiTeams'.
             }
         });
-        console.log('Recuperación de los equipos realizada con éxito');
+        // console.log('Recuperación de los equipos realizada con éxito');
 
         const allTeams = [...allApiTeams]; //Conversión del Set en un nuevo array con todos los equipos disponibles en la API. Array de strings.
         
@@ -21,7 +21,7 @@ const getApiTeams = async () => {
             const elementsToObjects = allTeams.map(team => ({ team_name: team })) //Como el método 'bulkCreate' trabaja con arrays de objetos, necesito transformar la información contenida en el array 'allTeams', respetando la estructura de mi modelo.
             await Team.bulkCreate(elementsToObjects);
             
-            console.log('Creación de los equipos cursada con éxito');
+            // console.log('Creación de los equipos cursada con éxito');
         } catch (error) {
             console.error('Error al crear los equipos:', error.message);
             // throw new Error('Error al crear los equipos');

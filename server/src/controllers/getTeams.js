@@ -1,16 +1,18 @@
-const { Team } = require('../db');
+const { Team } = require('../db.js');
 
 const getTeams = async () => {
     try {
-        const allTeams = await Team.findAll() //Busco a todos los equipos almacenados en la DB
-        console.log('Queda a vuestra disposición la lista de equipos completa. ¡Hela aquí!');
-        console.log(allTeams);
-        // return allTeams; //Retorno el arreglo con todos los teams.
+        const allTeams = await Team.findAll({
+            raw: true, //Utilizo este método para filtrar la metadata que envía Sequelize de la instancia del modelo.
+            attributes: ['team_name'] //Recupero sólo los nombres de los teams almacenados en la DB.
+        }); 
+        console.log('Teams recuperados con éxito');
+        return allTeams; //Retorno el arreglo con todos los teams.
     } catch (error) {
         console.error('Error al obtener los equipos', error.message);
         // throw new Error('Error al obtener los equipos');
         // return ({ message: 'Error en la recuperación de los equipos'});
     }
 }
-getTeams();
+
 module.exports = getTeams;
