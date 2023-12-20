@@ -17,6 +17,7 @@ router.get('/drivers', async (req, res) => {
         return res.status(404).json({ error: error.message })
     }
 });
+
 router.get('/drivers/teams', async (req, res) => {
     try {
         const allTeams = await getTeams();
@@ -27,7 +28,16 @@ router.get('/drivers/teams', async (req, res) => {
 });
 
 router.get('/drivers', getDriverByName);
-router.post('/drivers', postDriver);
+
+router.post('/drivers', async (req, res) => {
+    try {
+        const newDriver = await postDriver(req, res)
+        return res.status(200).json(newDriver)
+    } catch (error) {
+        return res.status(400).json({ error: error.message })
+    }
+});
+
 router.get('/drivers/:id', getDetails);
 // router.delete('drivers/', deleteDriver);
 
