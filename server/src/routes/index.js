@@ -11,7 +11,7 @@ const getDetails = require('../controllers/getDetails');
 //Definición de métodos con sus rutas y controladores asociados:
 router.get('/drivers', async (req, res) => {
     try {
-        const allDrivers = getDrivers();
+        const allDrivers = await getDrivers();
         return res.status(200).json(allDrivers);
     } catch (error) {
         return res.status(404).json({ error: error.message })

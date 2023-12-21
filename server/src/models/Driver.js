@@ -10,10 +10,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: UUIDV4
     },
-    driver_id: {
-      type: DataTypes.INTEGER,
-      unique: true,
-    },
+    // driver_id: {
+    //   type: DataTypes.INTEGER,
+    //   unique: true,
+    //   autoIncrement: true
+    // },
     driver_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,7 +32,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     dob: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
