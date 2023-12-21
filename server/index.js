@@ -5,7 +5,7 @@ const PORT = 3001;
 
 let dataLoaded = false;
 
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   console.log('Database connected successfully');
   // if (!dataLoaded) {
   //   await getApiTeams();

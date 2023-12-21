@@ -39,6 +39,7 @@ router.post('/drivers', async (req, res) => {
 });
 
 router.get('/drivers/:id', getDetails);
+
 // router.delete('drivers/', deleteDriver);
 
 module.exports = router;
