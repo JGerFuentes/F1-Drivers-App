@@ -1,5 +1,6 @@
 const getApiData = require('../utils/getApiData');
 const { Driver, Team } = require('../db.js');
+const fusionFunction = require('../utils/fusionFunction.js');
 
 const getDrivers = async (req, res) => {
     try {
@@ -58,65 +59,8 @@ const getDrivers = async (req, res) => {
             raw: true
         })
           
-        const mergeDrivers = (driversArray) => {
-            const mergedDrivers = driversArray.reduce((acc, driver) => {
-              const existingDriver = acc.find((d) => d.driver_id === driver.driver_id);
-          
-              if (existingDriver) {
-                // Si ya existe un driver con el mismo driver_id, agregamos el team_name al array teams
-                existingDriver.teams.push(driver["Teams.team_name"]);
-              } else {
-                // Si no existe, creamos un nuevo objeto con la propiedad teams como un array con el team_name
-                const newDriver = { ...driver, teams: [driver["Teams.team_name"]] };
-                acc.push(newDriver);
-              }
-          
-              return acc;
-            }, []);
-          
-            return mergedDrivers;
-        };
-        
-        mergeDrivers(dbDrivers);
-
-        // dbDrivers = dbDrivers.map(driver => {
-        //     let arrayTeams = [];
-        //      arrayTems.push(driver.Teams.team_name);
-        //      let targetId = driver.driver_id
-        //      let count = 0;
-        //     for (let i = 0; i < dbDrivers.length(); i+count){
-        //         if (dbDrivers[i].driver_id === targetId) {
-        //             teams.push(dbDrivers[i].Teams.team_name)
-        //              count++;
-        //         }
-        //     }
-        //     return ({
-        //         driver_id,
-        //         driver_name,
-        //         lastname,
-        //         image,
-        //         nationality,
-        //         dob,
-        //         description,
-        //         teams: arrayTeams,
-        //         origin: 'db'
-        //     })
-        // })
-
-        // const mergedTeams = Object.values(dbDrivers.reduce((acc, obj) => {
-        // const key = obj.driver_name;
-        
-        // if (!acc[key]) {
-        //     acc[key] = { ...obj, teams: [obj.Team.team_name] };
-        // } else {
-        //     acc[key].teams.push(obj.Team.team_name);
-        // }
-        
-        // return acc;
-        // }, {}));
-        
-        // console.log(mergedTeams);
-        
+        //Aplico la 'fusionFunction' al array obtenido para realizar las modificaciones necesarias y recibir un arreglo con la misma estructura que el de 'apiDrivers'.
+        dbDrivers = fusionFunction(dbDrivers);
 
         //Construyo con spread syntax el arreglo con todos los drivers
         let allDrivers = [...dbDrivers, ...apiDrivers];
