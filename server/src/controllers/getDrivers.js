@@ -64,11 +64,15 @@ const getDrivers = async (req, res) => {
 
         //Construyo con spread syntax el arreglo con todos los drivers
         let allDrivers = [...dbDrivers, ...apiDrivers];
-
-        return allDrivers;
+        
+        //Si el array contiene información lo retorno sino envío un mensaje de error apropiado.
+        if (allDrivers.length > 0) {
+            return allDrivers;
+        } else {
+            throw new Error ('Problems while trying to fetch your drivers. Sorry pal 😕');
+        }
     } catch (error) {
-        console.error('Problemas al recuperar los drivers', error);
-        throw error;
+          return { error: error.message };
     }
 };
 

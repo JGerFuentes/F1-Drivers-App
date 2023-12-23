@@ -6,9 +6,15 @@ const getTeams = async () => {
             raw: true, //Utilizo este método para filtrar la metadata que envía Sequelize de la instancia del modelo.
             attributes: ['team_name'] //Recupero sólo los nombres de los teams almacenados en la DB.
         }); 
-        return allTeams; //Retorno el arreglo con todos los teams.
+        
+        //Si el arreglo se construyó correctamente lo retorno sino, envío un mensaje de error apropiado.
+        if (allTeams.length > 0) {
+            return allTeams;
+        } else {
+            throw new Error ("Error while trying to retrieve the teams' info. Sorry for the inconvenience 😟");
+        }
     } catch (error) {
-        return ({ message: 'Error en la recuperación de los equipos'});
+        return ({ error: error.message });
     }
 }
 

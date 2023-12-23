@@ -8,7 +8,7 @@ const postDriver = async (req, res) => {
 
     //Condicional para verificar qeu ningún campo llegue vacío.
     if(!driver_name || !lastname || !nationality || !image || !dob || !description || !teams) {
-        throw new Error ('Faltan campos. Verifique la información enviada.')
+        throw new Error ('Missing fields. Please, double-check your inputs 👁‍🗨⌨')
     }
 
     //Creación del driver en la DB.
@@ -24,9 +24,13 @@ const postDriver = async (req, res) => {
     //Recorro el array de strings 'teams' para ir asociando cada uno de los elementos con el nuevo driver.
     teams.forEach(team => newDriver.addTeam(team)); 
     
-    return newDriver;
+    if (newDriver) {
+        return newDriver;
+    } else {
+        throw new Error ('Error while trying to create the driver ☠')
+    }
    } catch (error) {
-    return ({ message: 'Error al publicar el driver creado.' });
+    return ({ error: error.message });
    }
 }
 module.exports = postDriver;

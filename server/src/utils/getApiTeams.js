@@ -16,7 +16,7 @@ const getApiTeams = async () => {
                 
                 let driverTeams = driver.teams.match(regex); //Método de matcheo con la regex.
                 
-                driverTeams.forEach(team => allApiTeams.add(team)); //Recorro los teams recuperados de cada driver y lo añado al Set 'allApiTeams'.
+                driverTeams.forEach(team => allApiTeams.add(team)); //Recorro los 'teams' recuperados de cada driver y lo añado al Set 'allApiTeams'.
             }
         });
 
