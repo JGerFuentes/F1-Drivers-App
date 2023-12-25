@@ -17,7 +17,7 @@ const getDrivers = async (req, res) => {
             
             //Si el driver no tiene descripción le asigno un string vacío.
             if (!driver.description) {
-                driver.description = '';
+                driver.description = 'Not available.';
             } 
 
             //REGEX recuperada de la función 'getApiTeams'.
@@ -44,10 +44,6 @@ const getDrivers = async (req, res) => {
 
         //Almaceno en la variable 'dbDrivers' todo lo que se encuentre en la tabla 'Drivers' de la DB.
         let dbDrivers = await Driver.findAll({
-            //Excluyo sólo la columna 'pk' de las propiedades que me interesan.
-            attributes: {
-                exclude: ['pk']
-            }, //['driver_name', 'lastname', 'nationality', 'image', 'dob', 'description']
             //Como no alcanza sólo con asociar el modelo, debo filtrar la respuesta para que me retorne un sólo elemento con una propiedad donde se encuentren todos los teams asociados.
             include: [{
                 model: Team, //Asociación con el modelo 'Team'

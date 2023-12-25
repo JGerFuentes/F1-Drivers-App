@@ -12,7 +12,8 @@ const fusionFunction = (dbDriversArray) => {
   
         if (!existingDriver) {
             // Si no existe el elemento (o sea que el valor de 'existingDriver' es 'undefined'), creamos un nuevo objeto con todas las propiedades deseadas más la nueva propiedad 'teams', cuyo valor es igual a un array con el valor de la propiedad 'Teams.team_name' del "dbDriversArray".
-            const newDriver = { 
+            const newDriver = {
+                pk: driver.pk, 
                 driver_id: driver.driver_id,
                 driver_name: driver.driver_name,
                 lastname: driver.lastname,

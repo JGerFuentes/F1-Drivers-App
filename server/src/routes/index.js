@@ -27,8 +27,12 @@ router.get('/drivers', async (req, res) => {
 
 router.get('/drivers/:id', async (req, res) => {
     try {
-        const id = Number(req.params.id);
-        if (id > 0 && id < 509) {
+        const { id } = req.params;
+        
+        const idToNumber = Number(id);
+        const uuidv4_Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+        if (idToNumber > 0 && idToNumber < 509 || uuidv4_Regex.test(id)) {
             const driverDetail = await getDetails(id);
             return res.status(200).json(driverDetail);
         } else {

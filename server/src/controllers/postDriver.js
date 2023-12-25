@@ -6,7 +6,7 @@ const postDriver = async (req, res) => {
         //'teams' es un array de strings con los equipos que el usuario quiere adosar al driver creado.
     const { driver_name, lastname, nationality, image, dob, description, teams } = req.body; 
 
-    //Condicional para verificar qeu ningún campo llegue vacío.
+    //Condicional para verificar que ningún campo llegue vacío.
     if(!driver_name || !lastname || !nationality || !image || !dob || !description || !teams) {
         throw new Error ('Missing fields. Please, double-check your inputs 👁‍🗨⌨')
     }
