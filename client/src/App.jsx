@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import LandingPage from './components/LandingPage/landingPage';
+import HomePage from './components/HomePage/HomePage';
 import Drivers from './components/Drivers/Drivers';
 import Form from './components/Form/Form';
 import Detail from './components/Detail/Detail';
@@ -17,6 +18,15 @@ const App = () => {
   const enterHome = () => {
     navigate('/home');
   }
+  const [drivers, setDrivers] = useState([]);
+
+  const getAllDrivers = async () => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
 
 
   return (
@@ -25,7 +35,7 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={ <LandingPage enterHome={enterHome}/> }/>
-        <Route path='/home' element={ <Drivers /> }/>
+        <Route path='/home' element={ <HomePage /> }/>
         <Route path='/form' element={ <Form /> }/>
         <Route path='/detail/:id' element={ <Detail /> }/>
 
