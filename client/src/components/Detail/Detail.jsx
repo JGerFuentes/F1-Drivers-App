@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+const URL = 'http://localhost:3001/drivers/';
+import axios from 'axios';
 
 
 const Detail = () => {
@@ -8,10 +10,10 @@ const Detail = () => {
   const [driver, setDriver] = useState({})
 
   useEffect(() => {
-    fetch(getDetails(id)).then(
-      ([driverDetail]) => {
-        if (driverDetail[0].driver_name) {
-          setDriver(driverDetail[0])
+    axios(`${URL}/${id}`).then(
+      ({ data }) => {
+        if (data.driver_name) {
+          setDriver(data)
         } else {
           window.alert('No info available for this driver')
         }

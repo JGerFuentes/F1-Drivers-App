@@ -8,13 +8,13 @@ const fusionFunction = (dbDriversArray) => {
     const fusedTeamsArray = dbDriversArray.reduce((accumulatorArray, driver) => {
         //Creamos una variable para aplicar el método 'find' al "accumulatorArray". Este métdodo devuelve el primer elemento del array que cumple con una condición establecida. Si ningún elemento cumple con la condición, devuelve un 'undefined'.
         //Buscamos en el "accumulatorArray" la condición de existencia de un elemento con el mismo 'driver_id' que el driver actual de "dbDriversArray". Si existe, "existingDriver" tomará el valor de ese driver encontrado, sino su valor será 'undefined'.
-        const existingDriver = accumulatorArray.find((element) => element.driver_id === driver.driver_id);
+        const existingDriver = accumulatorArray.find((element) => element.pk === driver.pk);
   
         if (!existingDriver) {
             // Si no existe el elemento (o sea que el valor de 'existingDriver' es 'undefined'), creamos un nuevo objeto con todas las propiedades deseadas más la nueva propiedad 'teams', cuyo valor es igual a un array con el valor de la propiedad 'Teams.team_name' del "dbDriversArray".
             const newDriver = {
                 pk: driver.pk, 
-                driver_id: driver.driver_id,
+                driver_id: driver.pk,
                 driver_name: driver.driver_name,
                 lastname: driver.lastname,
                 image: driver.image,

@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { getAllDrivers, getAllTeams } from './redux/actions'
 import LandingPage from './components/LandingPage/landingPage';
 import HomePage from './components/HomePage/HomePage';
-import Drivers from './components/Drivers/Drivers';
+import Navbar from './components/Navbar/Navbar';
 import Form from './components/Form/Form';
 import Detail from './components/Detail/Detail';
-import Navbar from './components/Navbar/Navbar';
 import About from './components/About/About';
 import Error from './components/Error/Error';
 import './App.css'
@@ -15,28 +16,31 @@ import './App.css'
 const App = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const arrayDrivers = useSelector((state) => state.arrayDrivers);
+  const arrayTeams = useSelector((state) => state.arrayTeams);
+  
+  useEffect(() => {
+    if (pathname === '/home' && !arrayDrivers.length > 0) {
+      dispatch(getAllDrivers());
+    }
+    if (pathname === '/form' && !arrayTeams.length > 0) {
+      dispatch(getAllTeams());
+    }
+  }, [dispatch, pathname, arrayDrivers, arrayTeams]);
+
   const enterHome = () => {
     navigate('/home');
   }
-  const [drivers, setDrivers] = useState([]);
-
-  const getAllDrivers = async () => {
-    try {
-      
-    } catch (error) {
-      
-    }
-  }
-
 
   return (
     <div>
-      {pathname !== '/' && <Navbar/>}
+      { pathname !== '/' && <Navbar /> }
 
       <Routes>
         <Route path='/' element={ <LandingPage enterHome={enterHome}/> }/>
-        <Route path='/home' element={ <HomePage /> }/>
-        <Route path='/form' element={ <Form /> }/>
+        <Route path='/home' element={ <HomePage arrayDrivers={arrayDrivers}/> }/>
+        <Route path='/form' element={ <Form arrayTeams={arrayTeams}/> }/>
         <Route path='/detail/:id' element={ <Detail /> }/>
 
         {/* Si llego 😁 */}

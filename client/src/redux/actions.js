@@ -54,4 +54,12 @@ export const addDriver = (driver) => {
         }
 
     }
-}
+};
+
+export const orderDrivers = (order) => {
+    return { type: ORDER_DRIVERS, payload: order } //Order: Alfabético (lastname) || Numérico (dob)
+};
+
+export const filterDrivers = (filter) => {
+    return { type: FILTER_DRIVERS, payload: filter } // Filter: Teams || Origin (DB || API)
+};

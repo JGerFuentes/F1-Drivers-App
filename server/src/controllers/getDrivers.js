@@ -17,14 +17,14 @@ const getDrivers = async (req, res) => {
             
             //Si el driver no tiene descripción le asigno un string vacío.
             if (!driver.description) {
-                driver.description = 'Not available.';
+                driver.description = 'Description not available.';
             } 
 
             //REGEX recuperada de la función 'getApiTeams'.
             const regex = /\b((?<!\by\s)\b[A-Za-zÀ-ÖØ-öø-ÿ\s.-]+)\b/g;
 
             //Controlo la existencia de valores en la propiedad 'teams', si existe los descompongo en un array de strings y lo almacena en la variable 'driverTeams' para asignarlo después. Si no existe la propiedad o está vacía lo declaro como un string vacío.
-            let driverTeams = driver.teams ? driver.teams.match(regex) : ''; 
+            let driverTeams = driver.teams ? driver.teams.match(regex) : ['Teams info not available'];
 
             //Retorno un objeto con todas las propiedades requeridas para cada driver mapeado.
             return {
@@ -73,17 +73,3 @@ const getDrivers = async (req, res) => {
 };
 
 module.exports = getDrivers;
-
-//Parámetro para el paginado:
-        // const ITEMS_PER_PAGE = 9;
-//Capturo el id de la página de navegación (índice) o defino un 'defaultvalue' del índice.
-        // const page_id = Number(req.query.page) || 1; //! Está tirando error el 'query'.
-        // const page_id = 57
-        
-        //Determino del rango de índices para la paginación.
-        // const startIndex = (page_id - 1 ) * ITEMS_PER_PAGE;
-        // const endIndex = startIndex + ITEMS_PER_PAGE;
-
-        // console.log('Array de allDrivers ', allDrivers.slice(startIndex, endIndex));
-
-        // return allDrivers.slice(startIndex, endIndex);
