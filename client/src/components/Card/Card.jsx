@@ -8,6 +8,7 @@ const Card = ({driver_id, driver_name, lastname, image, teams}) => {
           <h2>{lastname},</h2>
           <h2>{driver_name}</h2>
           <img src={image} alt={`${lastname}, ${driver_name}'s pic`}/>
+          
           <div>
             TEAMS:
             { teams?.map((team, index) => {

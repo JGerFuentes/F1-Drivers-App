@@ -36,14 +36,14 @@ router.get('/drivers/:id', async (req, res) => {
             const driverDetail = await getDetails(id);
             return res.status(200).json(driverDetail);
         } else {
-            return res.status(400).json( { message: 'Invalid ID. Please, try another one.'})
+            return res.status(400).json( { message: 'Invalid ID. Please, try another one.' })
         }
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }
 });
 
-router.get('/drivers/teams', async (req, res) => {
+router.get('/teams', async (req, res) => {
     try {
         const allTeams = await getTeams();
         return res.status(200).json(allTeams);

@@ -1,10 +1,10 @@
 import { GET_DRIVERS, GET_TEAMS, ADD_DRIVER, ORDER_DRIVERS, FILTER_DRIVERS } from "./action-types";
-const URL = 'http://localhost:3001/drivers';
+const URL = 'http://localhost:3001';
 
 export const getAllDrivers = () => {
     return async (dispatch) => {
         try {
-            const response = await fetch(URL);
+            const response = await fetch(`${URL}/drivers`);
             const data = await response.json();
 
             return dispatch({
@@ -36,7 +36,7 @@ export const getAllTeams = () => {
 export const addDriver = (driver) => {
     return async (dispatch) =>{
         try {
-            const response = await fetch(URL, {
+            const response = await fetch(`${URL}/drivers`, {
                 method: 'POST',
                 headers: {
                     'Content/type': 'application/json'

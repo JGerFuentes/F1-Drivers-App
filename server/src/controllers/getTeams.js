@@ -9,7 +9,11 @@ const getTeams = async () => {
         
         //Si el arreglo se construyó correctamente lo retorno sino, envío un mensaje de error apropiado.
         if (allTeams.length > 0) {
-            return allTeams;
+            let arrayTeams = [];
+            allTeams.map((team) => {
+                arrayTeams.push(team.team_name)
+            })
+            return arrayTeams;
         } else {
             throw new Error ("Error while trying to retrieve the teams' info. Sorry for the inconvenience 😟");
         }

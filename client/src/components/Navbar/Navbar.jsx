@@ -12,17 +12,23 @@ const Navbar = ({onSearch}) => {
             {/* <img></img> */}
         </Link>
 
+        <Link to='/form'>
+            <button>Create</button>
+        </Link>
+
         <Link to='/about'>
             <button>About</button>
         </Link>
+
+
         
-        <Link>
+        {/* <Link>
             <button>Order</button>
         </Link>
 
         <Link>
             <button>Filter</button>
-        </Link>
+        </Link> */}
     </div>
   )
 }
