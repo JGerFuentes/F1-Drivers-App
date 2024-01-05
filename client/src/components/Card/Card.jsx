@@ -7,7 +7,7 @@ const Card = ({driver_id, driver_name, lastname, image, teams}) => {
       <div key={driver_id}>
           <h2>{lastname},</h2>
           <h2>{driver_name}</h2>
-          <img src={image} alt={`${lastname}, ${driver_name}'s pic`}/>
+          <img src={image} alt={`${lastname}, ${driver_name}'s pic` } height="250px" width="250px"/>
           
           <div>
             TEAMS:

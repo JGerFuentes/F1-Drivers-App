@@ -5,7 +5,6 @@ import Searchbar from '../Searchbar/Searchbar';
 const Navbar = ({onSearch}) => {
   return (
     <div>
-        <Searchbar onSearch={onSearch}/>
         
         <Link to='/home'>
             <button>HOME</button>
@@ -13,13 +12,14 @@ const Navbar = ({onSearch}) => {
         </Link>
 
         <Link to='/form'>
-            <button>Create</button>
+            <button>CREATE YOUR DRIVER</button>
         </Link>
 
         <Link to='/about'>
-            <button>About</button>
+            <button>ABOUT</button>
         </Link>
 
+        <Searchbar onSearch={onSearch}/>
 
         
         {/* <Link>

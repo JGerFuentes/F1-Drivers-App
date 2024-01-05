@@ -1,4 +1,5 @@
 import { GET_DRIVERS, GET_TEAMS, ADD_DRIVER, ORDER_DRIVERS, FILTER_DRIVERS } from "./action-types";
+import axios from 'axios';
 const URL = 'http://localhost:3001';
 
 export const getAllDrivers = () => {
@@ -36,19 +37,26 @@ export const getAllTeams = () => {
 export const addDriver = (driver) => {
     return async (dispatch) =>{
         try {
-            const response = await fetch(`${URL}/drivers`, {
-                method: 'POST',
-                headers: {
-                    'Content/type': 'application/json'
-                },
-                body: JSON.stringify(driver)
-            });
-            const data = await response.json();
-
-            return dispatch({
-                type: ADD_DRIVER,
-                payload: data, //Objeto
+            const { data } =  await axios.post(`${URL}/drivers`, driver)
+            
+            dispatch({
+                type:ADD_DRIVER,
+                payload: data
             })
+            //Realizado con FETCH:
+                // const response = await fetch(`${URL}/drivers`, {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content/type': 'application/json'
+                //     },
+                //     body: JSON.stringify(driver)
+                // });
+                // const data = await response.json();
+
+                // return dispatch({
+                //     type: ADD_DRIVER,
+                //     payload: data, //Objeto
+                // })
         } catch (error) {
             return ({ error: error.message })
         }

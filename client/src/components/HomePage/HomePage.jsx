@@ -49,6 +49,12 @@ const HomePage = ({ arrayDrivers }) => {
   //Invocación de la función 'pageLinkersGenerator' de la carpeta 'utils'.
   const linksGenerator = pageLinkersGenerator(currentPage, totalPages, goToPage);
 
+  const backToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant',
+    });
+  };
 
   return (
     <div>
@@ -60,7 +66,6 @@ const HomePage = ({ arrayDrivers }) => {
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
 
             <span>{linksGenerator}</span>
-            {/* <span>Page {currentPage}</span> */}
 
             <button onClick={nextPageHandler} disabled={currentPage >= totalPages}>Next</button>
           </div>
@@ -76,13 +81,14 @@ const HomePage = ({ arrayDrivers }) => {
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
 
             <span>{linksGenerator}</span>
-            {/* <span>Page {currentPage}</span> */}
 
             <button onClick={nextPageHandler} disabled={currentPage >= totalPages}>Next</button>
           </div>
         </div>
       }
+      <button className="scroll-to-top" onClick={backToTop}>Go back to top</button>
     </div>
+    
 
   )
 }
