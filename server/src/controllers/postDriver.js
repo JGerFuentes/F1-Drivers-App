@@ -1,4 +1,5 @@
-const { Driver } = require('../db.js');
+const { Driver, Team } = require('../db.js');
+const stringsToPks = require('../utils/stringsToPks.js');
 
 const postDriver = async (req, res) => {
    try {
@@ -21,8 +22,11 @@ const postDriver = async (req, res) => {
             description
     })
 
-    //Recorro el array de strings 'teams' para ir asociando cada uno de los elementos con el nuevo driver.
-    teams.forEach(team => newDriver.addTeam(team)); 
+    //Transformo el array recibido para poder trabajarlo adecuadamente.
+    const arrayPkTeams = await stringsToPks(teams)
+
+    //Recorro el array de PKs para ir asociando cada uno de los elementos con el nuevo driver.
+    arrayPkTeams.forEach(team => newDriver.addTeam(team)); 
     
     if (newDriver) {
         return newDriver;

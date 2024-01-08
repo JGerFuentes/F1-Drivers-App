@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { getAllDrivers, getAllTeams } from './redux/actions'
 import LandingPage from './components/LandingPage/LandingPage';
 import HomePage from './components/HomePage/HomePage';
@@ -10,7 +11,7 @@ import Detail from './components/Detail/Detail';
 import About from './components/About/About';
 import Error from './components/Error/Error';
 import './App.css'
-
+const URL = 'http://localhost:3001/drivers'
 
 
 const App = () => {
@@ -19,15 +20,37 @@ const App = () => {
   const dispatch = useDispatch();
   const arrayDrivers = useSelector((state) => state.arrayDrivers);
   const arrayTeams = useSelector((state) => state.arrayTeams);
+  const [foundDrivers, setFoundDrivers] = useState([]);
   
   useEffect(() => {
     if (pathname === '/home' && !arrayDrivers.length > 0) {
       dispatch(getAllDrivers());
+      setFoundDrivers([])
     }
-    if (pathname === '/form' && !arrayTeams.length > 0) {
+    if (pathname === '/form' || pathname === '/home' && !arrayTeams.length > 0) {
       dispatch(getAllTeams());
     }
+
   }, [dispatch, pathname, arrayDrivers, arrayTeams]);
+
+  const onSearch = async (name) => {
+    try {
+      const { data } = await axios (`${URL}?name=${name}`)
+  
+      if (data.length > 0) {
+        let auxArray = [];
+        
+        data.map((obj) => {auxArray = auxArray.concat(obj)});
+        
+        setFoundDrivers(auxArray);
+        navigate(`/home?name=${name}`)
+      }
+    } catch (error) {
+      window.alert("Sorry, but there are no matches for your input.");
+      
+      return ({ error: error.message });
+    }
+  }
 
   const enterHome = () => {
     navigate('/home');
@@ -35,11 +58,11 @@ const App = () => {
 
   return (
     <div>
-      { pathname !== '/' && <Navbar /> }
+      { pathname !== '/' && <Navbar onSearch={onSearch} arrayTeams={arrayTeams}/> }
 
       <Routes>
         <Route path='/' element={ <LandingPage enterHome={enterHome}/> }/>
-        <Route path='/home' element={ <HomePage arrayDrivers={arrayDrivers}/> }/>
+        <Route path='/home' element={ <HomePage arrayDrivers={arrayDrivers} foundDrivers={foundDrivers}/> }/>
         <Route path='/form' element={ <Form arrayTeams={arrayTeams}/> }/>
         <Route path='/detail/:id' element={ <Detail /> }/>
 

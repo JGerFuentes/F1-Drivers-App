@@ -8,6 +8,7 @@ const Drivers = ({ arrayDrivers }) => {
         return(
           <Card
             key={driver.driver_id}
+            driver_id={driver.driver_id}
             driver_name={driver.driver_name}
             lastname={driver.lastname}
             image={driver.image}

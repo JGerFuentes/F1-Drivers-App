@@ -39,7 +39,7 @@ router.get('/drivers/:id', async (req, res) => {
             return res.status(400).json( { message: 'Invalid ID. Please, try another one.' })
         }
     } catch (error) {
-        return res.status(500).json({ error: error.message })
+        return res.status(500).json({ message: 'Detail not found.' })
     }
 });
 

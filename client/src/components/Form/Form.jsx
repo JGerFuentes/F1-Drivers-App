@@ -68,8 +68,6 @@ const Form = ({ arrayTeams }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!Object.keys(errors).length) {
-      console.log("Objeto errors:", errors);
-      console.log("Objeto a enviar:", userInput);
       dispatch(
         addDriver({
           driver_name: userInput.driver_name,
@@ -84,13 +82,6 @@ const Form = ({ arrayTeams }) => {
       navigate('/home');
     }
   }
-
-  const backToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant',
-    });
-  };
 
   return (
     <div>
@@ -186,9 +177,7 @@ const Form = ({ arrayTeams }) => {
           }
         </div>
         
-        <button type='submit'>Create my driver!</button>
-        
-        <button className="scroll-to-top" onClick={backToTop}>Go back to top</button>
+        <button type='submit' disabled={Form.driver_name || Object.keys(errors).length}>Create my driver!</button>
       </form>
     </div>
   )

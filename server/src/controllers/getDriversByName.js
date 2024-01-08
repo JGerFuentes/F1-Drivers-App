@@ -18,7 +18,7 @@ const getDriversByName = async (name) => {
         matchingDrivers.slice(15);
         return matchingDrivers;
     } else {
-        throw new Error(`No matches found for the provided name. Check your input or try another one 🏎`);
+        throw new Error(`No matches found for the provided name. Check your input or try another one`);
     }
 }
 
