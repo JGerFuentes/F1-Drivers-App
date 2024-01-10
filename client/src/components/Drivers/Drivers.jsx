@@ -13,7 +13,7 @@ const Drivers = ({ arrayDrivers }) => {
             lastname={driver.lastname}
             image={driver.image}
             // nationality={driver.nationality}
-            // dob={driver.dob}
+            dob={driver.dob}
             // description={driver.description}
             teams={driver.teams}
           />

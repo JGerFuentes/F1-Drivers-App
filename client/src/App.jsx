@@ -27,7 +27,7 @@ const App = () => {
       dispatch(getAllDrivers());
       setFoundDrivers([])
     }
-    if (pathname === '/form' || pathname === '/home' && !arrayTeams.length > 0) {
+    if ((pathname === '/form' || pathname === '/home') && !arrayTeams.length > 0) {
       dispatch(getAllTeams());
     }
 
@@ -62,7 +62,7 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={ <LandingPage enterHome={enterHome}/> }/>
-        <Route path='/home' element={ <HomePage arrayDrivers={arrayDrivers} foundDrivers={foundDrivers}/> }/>
+        <Route path='/home' element={ <HomePage arrayDrivers={arrayDrivers} arrayTeams={arrayTeams} foundDrivers={foundDrivers}/> }/>
         <Route path='/form' element={ <Form arrayTeams={arrayTeams}/> }/>
         <Route path='/detail/:id' element={ <Detail /> }/>
 

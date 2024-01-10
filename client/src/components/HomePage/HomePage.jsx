@@ -1,43 +1,57 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
 import pageLinkersGenerator from '../../utils/pageLinkersGenerator';
+import { orderDrivers, filterDrivers } from '../../redux/actions';
 
 const driversToRender = 9; //Cantidad de drivers a renderizar según el paginado indicado para el componente 'HomePage'.
 const searching_pagination = 15; //Cantidad de drivers a renderizar para el caso de búsquedas realizadas por el usuario.
 
-const HomePage = ({ arrayDrivers, foundDrivers }) => {
+const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
   const navigate = useNavigate();
   const pathname = useLocation();
+  const dispatch = useDispatch();
+  const filteredAndOrderedDrivers = useSelector((state) => state.filteredAndOrderedDrivers);
+
+    console.log('Longitud del array filtrado etc: ',filteredAndOrderedDrivers.length);
   const [searching, setSearching] = useState(false);
-  const [filteredDrivers, setFilteredDrivers] = useState([]);
-  const [currentPage, setcurrentPage] = useState(1); 
+  const [searchedDrivers, setSearchedDrivers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const[aux, setAux] = useState(false);
+  const [filter, setFilter] = useState('');
+  const [order, setOrder] = useState('');
   
   const startIndex = (currentPage - 1 ) * driversToRender;
   const endIndex = startIndex + driversToRender;
-  const totalPages = Math.ceil(arrayDrivers.length / driversToRender);
+  let totalPages = Math.ceil(arrayDrivers.length / driversToRender);
   let driversToShow = []
+  
 
+  //Manejo de la renderización en caso de estado de búsqueda activa.
   useEffect(()=>{
-    if(pathname.search) {
+    if (pathname.search) {
       setSearching(true);
-      setFilteredDrivers(foundDrivers);
+      setSearchedDrivers(foundDrivers);
     } else if (!pathname.search) {
       setSearching(false);
-      setFilteredDrivers(arrayDrivers);
+      setSearchedDrivers(arrayDrivers);
     }
-  }, [arrayDrivers, foundDrivers]);
+  }, [arrayDrivers, foundDrivers, pathname.search]);
 
-  //Bloque para la definición de los elementos a renderizar.
+  //Bloque para la paginación de los elementos a renderizar.
   if (searching === true) {
-    driversToShow = filteredDrivers.slice(startIndex, endIndex);
+    driversToShow = searchedDrivers.slice(0, searching_pagination);
+  } else if (aux === true){
+    totalPages = Math.ceil(filteredAndOrderedDrivers.length / driversToRender);
+    driversToShow = filteredAndOrderedDrivers.slice(startIndex, endIndex);
   } else {
-    driversToShow = filteredDrivers.slice(0, searching_pagination);
+    driversToShow = searchedDrivers.slice(startIndex, endIndex);
   }
 
   //Handler para el seteo de la página en visualización.
   const pageHandler = (page) => {
-    setcurrentPage(page);
+    setCurrentPage(page);
   };
 
   //Handler para ir a la página anterior (si no estamos en la primera página).
@@ -68,8 +82,71 @@ const HomePage = ({ arrayDrivers, foundDrivers }) => {
     });
   };
 
+  const handleFilter = (event) => {
+    setFilter(event.target.value);
+    setOrder(order);
+    setAux(true);
+    setCurrentPage(1);
+    dispatch(filterDrivers(event.target.value));
+  };
+
+  const handleOrder = (event) => {
+    setOrder(event.target.value);
+    setFilter(filter);
+    setAux(true);
+    setCurrentPage(1);
+    dispatch(orderDrivers(event.target.value));
+  };
+
   return (
     <div>
+      {!searching && <div>
+        <div>
+            FILTER:
+            <label key='teamFilter'>
+                By Team
+                <select onChange={handleFilter}>
+                    <option key='allDrivers' value='allDrivers'>All drivers</option>
+                    {arrayTeams && arrayTeams.map((team) => {
+                        return(
+                            <option key={team} value={team}>
+                                {team}
+                            </option>
+                        )
+                    })}
+                </select>
+            </label>
+            <label key='sourceFilter'>
+                By Source
+                <select onChange={handleFilter}>
+                    <option key='allDrivers2' value='allDrivers'>All Drivers</option>
+                    <option key='DB' value='DB'>Database</option>
+                    <option key='API' value='API'>API</option>
+                </select>
+            </label>
+        </div>
+
+        <div>
+            ORDER:
+            <label key='lastnameOrder'>
+                By Lastname
+                <select onChange={handleOrder}>
+                    <option value='no-order' defaultValue={true}>---</option>
+                    <option value='L-ASC'>Ascendent</option>
+                    <option value='L-DESC'>Descendent</option>
+                </select>
+            </label>
+            <label key='dobOrder'>
+                By Birthdate
+                <select onChange={handleOrder}>
+                    <option value='no-order' defaultValue={true}>---</option>
+                    <option value='N-ASC'>Ascendent</option>
+                    <option value='N-DESC'>Descendent</option>
+                </select>
+            </label>
+        </div>
+      </div>}
+
       {!searching && 
         <div>
           <h2>Thy Driver's List</h2>
@@ -96,7 +173,7 @@ const HomePage = ({ arrayDrivers, foundDrivers }) => {
       }
 
       {searching && 
-        <button onClick={() => {setSearching(false); setFilteredDrivers(arrayDrivers); navigate('/home')}}>Back to the list</button>
+        <button onClick={() => {setSearching(false); navigate('/home')}}>Back to the list</button>
       }
 
       <button className="scroll-to-top" onClick={backToTop}>To the top</button>
