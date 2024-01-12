@@ -14,11 +14,10 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
   const dispatch = useDispatch();
   const filteredAndOrderedDrivers = useSelector((state) => state.filteredAndOrderedDrivers);
 
-    console.log('Longitud del array filtrado etc: ',filteredAndOrderedDrivers.length);
   const [searching, setSearching] = useState(false);
   const [searchedDrivers, setSearchedDrivers] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const[aux, setAux] = useState(false);
+  const [aux, setAux] = useState(false);
   const [filter, setFilter] = useState('');
   const [order, setOrder] = useState('');
   
@@ -38,6 +37,11 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       setSearchedDrivers(arrayDrivers);
     }
   }, [arrayDrivers, foundDrivers, pathname.search]);
+
+  useEffect(() => {
+    dispatch(filterDrivers(filter));
+    dispatch(orderDrivers(order));
+  }, [filter, order])
 
   //Bloque para la paginación de los elementos a renderizar.
   if (searching === true) {
@@ -84,18 +88,14 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
 
   const handleFilter = (event) => {
     setFilter(event.target.value);
-    setOrder(order);
     setAux(true);
     setCurrentPage(1);
-    dispatch(filterDrivers(event.target.value));
   };
 
   const handleOrder = (event) => {
     setOrder(event.target.value);
-    setFilter(filter);
     setAux(true);
     setCurrentPage(1);
-    dispatch(orderDrivers(event.target.value));
   };
 
   return (
@@ -105,7 +105,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
             FILTER:
             <label key='teamFilter'>
                 By Team
-                <select onChange={handleFilter}>
+                <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers' value='allDrivers'>All drivers</option>
                     {arrayTeams && arrayTeams.map((team) => {
                         return(
@@ -118,7 +118,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
             </label>
             <label key='sourceFilter'>
                 By Source
-                <select onChange={handleFilter}>
+                <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers2' value='allDrivers'>All Drivers</option>
                     <option key='DB' value='DB'>Database</option>
                     <option key='API' value='API'>API</option>
@@ -130,18 +130,18 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
             ORDER:
             <label key='lastnameOrder'>
                 By Lastname
-                <select onChange={handleOrder}>
-                    <option value='no-order' defaultValue={true}>---</option>
-                    <option value='L-ASC'>Ascendent</option>
-                    <option value='L-DESC'>Descendent</option>
+                <select onChange={handleOrder} value={order}>
+                    <option value='no-order' defaultValue={true}>No order</option>
+                    <option value='L-ASC'>Ascendent order</option>
+                    <option value='L-DESC'>Descendent order</option>
                 </select>
             </label>
             <label key='dobOrder'>
                 By Birthdate
-                <select onChange={handleOrder}>
-                    <option value='no-order' defaultValue={true}>---</option>
-                    <option value='N-ASC'>Ascendent</option>
-                    <option value='N-DESC'>Descendent</option>
+                <select onChange={handleOrder} value={order}>
+                    <option value='no-order' defaultValue={true}>No order</option>
+                    <option value='N-ASC'>Ascendent order</option>
+                    <option value='N-DESC'>Descendent order</option>
                 </select>
             </label>
         </div>

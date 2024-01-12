@@ -3,7 +3,7 @@ import { GET_DRIVERS, GET_TEAMS, ADD_DRIVER, ORDER_DRIVERS, FILTER_DRIVERS } fro
 const initialState = {
     arrayDrivers: [], //Array de objetos.
     arrayTeams: [], //Array de strings.
-    filteredAndOrderedDrivers:[]
+    filteredAndOrderedDrivers:[],
 };
 
 const reducer = (state=initialState, { type, payload }) => {
@@ -28,82 +28,95 @@ const reducer = (state=initialState, { type, payload }) => {
             };
 
         case ORDER_DRIVERS:
-            let safeCopy = [...state.arrayDrivers]
+            let safeCopy = [...state.arrayDrivers];
 
-            // if (payload === 'no-order') {
-            //     console.log('no order: on');
-            //     return {
-            //         ...state,
-            //         filteredAndOrderedDrivers: safeCopy
-            //     }
-            // } 
-            // else {
-                if (!state.filteredAndOrderedDrivers.length > 0) {
-                    if (payload === 'no-order') {
-                        console.log('no order: on');
-                        return {
-                            ...state,
-                            filteredAndOrderedDrivers: safeCopy
-                        }
-                    } 
-
-                    let orderedDrivers= safeCopy.sort( (a, b) => {
-                        if (payload === 'L-ASC') {
-                            console.log('lastname ascendente: on')
-                            return a.lastname.localeCompare(b.lastname);
-                        }
-                        if (payload === 'L-DESC') {
-                            console.log('lastname descendente: on')
-                            return b.lastname.localeCompare(a.lastname);
-                        }
-                        if (payload === 'N-ASC') {
-                            console.log('dob ascendente: on')
-                            return a.dob.slice(0, 4) - b.dob.slice(0, 4)
-                        }
-                        if (payload === 'N-DESC') {
-                            console.log('dob descendente: on');
-                            return b.dob.slice(0, 4) - a.dob.slice(0, 4)
-                        }
-                    })
-
+            if (!state.filteredAndOrderedDrivers.length > 0) {
+                if (payload === 'no-order') {
                     return {
                         ...state,
-                        filteredAndOrderedDrivers: orderedDrivers
+                        filteredAndOrderedDrivers: safeCopy
                     }
+                };
+            
+                let orderedDrivers = safeCopy.sort( (a, b) => {
+                    if (payload === 'L-ASC') {
+                        return a.lastname.localeCompare(b.lastname);
+                    }
+                    else if (payload === 'L-DESC') {
+                        return b.lastname.localeCompare(a.lastname);
+                    }
+                    else if (payload === 'N-ASC') {
+                        const [Ayear, Amonth, Aday] = a.dob.split('-').map(Number);
+                        const [Byear, Bmonth, Bday] = b.dob.split('-').map(Number);
                     
-                } else {
-                    if (payload === 'no-order') {
-                        console.log('no order: on');
-                        return {
-                            ...state,
-                            filteredAndOrderedDrivers: state.filteredAndOrderedDrivers
-                        }
-                    } 
-                    let orderedDrivers= state.filteredAndOrderedDrivers.sort( (a, b) => {
-                        if (payload === 'L-ASC') {
-                            console.log('lastname ascendente: on')
-                            return a.lastname.localeCompare(b.lastname);
-                        }
-                        if (payload === 'L-DESC') {
-                            console.log('lastname descendente: on')
-                            return b.lastname.localeCompare(a.lastname);
-                        }
-                        if (payload === 'N-ASC') {
-                            console.log('dob ascendente: on')
-                            return a.dob.slice(0, 4) - b.dob.slice(0, 4)
-                        }
-                        if (payload === 'N-DESC') {
-                            console.log('dob descendente: on');
-                            return b.dob.slice(0, 4) - a.dob.slice(0, 4)
-                        }
-                    })
-
-                    return {
-                        ...state,
-                        filteredAndOrderedDrivers: orderedDrivers
+                        if (Ayear !== Byear) {
+                            return Ayear - Byear
+                        } else if (Amonth !== Bmonth) {
+                            return Amonth - Bmonth
+                        } else if (Aday !== Bday) {
+                            return Aday - Bday
+                        }   
                     }
+                    else if (payload === 'N-DESC') {
+                        const [Ayear, Amonth, Aday] = a.dob.split('-').map(Number);
+                        const [Byear, Bmonth, Bday] = b.dob.split('-').map(Number);
+                    
+                        if (Ayear !== Byear) {
+                            return Byear - Ayear
+                        } else if (Amonth !== Bmonth) {
+                            return Bmonth - Amonth
+                        } else if (Aday !== Bday) {
+                            return Bday - Aday
+                        }
+                    }
+                });
+
+                return {
+                    ...state,
+                    filteredAndOrderedDrivers: orderedDrivers
                 }
-            // };
+                
+            } 
+            else {
+                let orderedDrivers = state.filteredAndOrderedDrivers.sort( (a, b) => {
+                    if (payload === 'L-ASC') {
+                        return a.lastname.localeCompare(b.lastname);
+                    }
+                    else if (payload === 'L-DESC') {
+                        return b.lastname.localeCompare(a.lastname);
+                    }
+                    else if (payload === 'N-ASC') {
+                        const [Ayear, Amonth, Aday] = a.dob.split('-').map(Number);
+                        const [Byear, Bmonth, Bday] = b.dob.split('-').map(Number);
+                    
+                        if (Ayear !== Byear) {
+                            return Ayear - Byear
+                        } else if (Amonth !== Bmonth) {
+                            return Amonth - Bmonth
+                        } else if (Aday !== Bday) {
+                            return Aday - Bday
+                        }   
+                    }
+                    else if (payload === 'N-DESC') {
+                        const [Ayear, Amonth, Aday] = a.dob.split('-').map(Number);
+                        const [Byear, Bmonth, Bday] = b.dob.split('-').map(Number);
+                    
+                        if (Ayear !== Byear) {
+                            return Byear - Ayear
+                        } else if (Amonth !== Bmonth) {
+                            return Bmonth - Amonth
+                        } else if (Aday !== Bday) {
+                            return Bday - Aday
+                        }
+                    }
+                });
+
+                return {
+                  ...state,
+                  filteredAndOrderedDrivers: orderedDrivers
+                }
+              };
+            
 
 
         case FILTER_DRIVERS:
@@ -111,31 +124,19 @@ const reducer = (state=initialState, { type, payload }) => {
 
             if (payload === 'allDrivers') {
                 return {
-                    ...state,
-                    filteredAndOrderedDrivers: copy
-                }
+                ...state,
+                filteredAndOrderedDrivers: copy
+                };
             }
-            // if (!state.filteredAndOrderedDrivers > 0) {
-                return {
-                    ...state,
-                    filteredAndOrderedDrivers: copy.filter( (driver) => {
-                        return  payload === 'DB' ? driver.origin === 'db' :
-                                payload === 'API' ? driver.origin === 'api' :
-                                driver.teams.includes(payload) ;
-                        })
-                }  
-            // }
-            // else {
-            //     return {
-            //         ...state,
-            //         filteredAndOrderedDrivers: state.filteredAndOrderedDrivers.filter( (driver) => {
-            //             return  payload === 'DB' ? driver.origin === 'db' :
-            //                     payload === 'API' ? driver.origin === 'api' :
-            //                     driver.teams.includes(payload) ;
-            //             })
-            //     }  
-            // }
-            
+
+            return {
+                ...state,
+                filteredAndOrderedDrivers: copy.filter((driver) => {
+                    return  payload === 'DB' ? driver.origin === 'db' :
+                            payload === 'API' ? driver.origin === 'api' :
+                            driver.teams.includes(payload)
+                }),
+            };
         
         default:
             return {...state};
