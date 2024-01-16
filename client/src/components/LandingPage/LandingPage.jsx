@@ -1,14 +1,13 @@
-import React from 'react'
-import './LandingPage.css';
+import styles from './LandingPage.module.scss';
 
 const LandingPage = ({enterHome}) => {
   return (
-    <div>
-        <div>Welcome, racer!</div>
-        <div>Are you ready?</div>
-        <div>Fasten your seatbelt and...</div>
-        <button onClick={enterHome}>LET'S F*** GO!</button>
-    </div>)
-}
+    <div className={styles.landing_container}>
+        <div id={styles.div1}>Welcome, racer!</div>
+        <div id={styles.div2}>Are you ready?</div>
+        <div id={styles.div3}>Fasten your seatbelt and...</div>
+        <button onClick={enterHome} id={styles.button}>LET'S F**** GO!!!</button>
+    </div>
+  )}
 
 export default LandingPage;

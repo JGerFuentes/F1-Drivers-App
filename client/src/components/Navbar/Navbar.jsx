@@ -1,11 +1,11 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Searchbar from '../Searchbar/Searchbar';
+import './Navbar.css';
 
 
 const Navbar = ({onSearch}) => {
     return (
-        <div>
+        <div className="navbar_container">
             <Link to='/home'>
                 <button>HOME</button>
             </Link>

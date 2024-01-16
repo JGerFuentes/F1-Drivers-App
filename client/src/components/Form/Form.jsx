@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addDriver } from '../../redux/actions';
@@ -68,23 +68,28 @@ const Form = ({ arrayTeams }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!Object.keys(errors).length) {
-      dispatch(
-        addDriver({
-          driver_name: userInput.driver_name,
-          lastname:userInput.lastname,
-          nationality: userInput.nationality,
-          image: userInput.image,
-          dob: userInput.dob,
-          description: userInput.description,
-          teams: userInput.teams
-        })
-      );
-      navigate('/home');
+      try {
+        dispatch(
+          addDriver({
+            driver_name: userInput.driver_name,
+            lastname:userInput.lastname,
+            nationality: userInput.nationality,
+            image: userInput.image,
+            dob: userInput.dob,
+            description: userInput.description,
+            teams: userInput.teams
+          })
+        );
+        window.alert ('Congratulations! Your driver has been successfully created!')
+        navigate('/home');
+      } catch (error) {
+        window.alert (error.message)
+      }
     }
   }
 
   return (
-    <div>
+    <div className="form_container">
       <form onSubmit={handleSubmit}>
 
         <label htmlFor="name">Name: </label>
@@ -96,7 +101,7 @@ const Form = ({ arrayTeams }) => {
           onChange={handleOnChange} 
           placeholder="Your driver's name here..."
         />
-        <p>{errors.driver_name}</p>
+        <p className="error_message">{errors.driver_name}</p>
 
         <label htmlFor="lastname">Lastname: </label>
         <input 
@@ -107,7 +112,7 @@ const Form = ({ arrayTeams }) => {
           onChange={handleOnChange} 
           placeholder="Your driver's lastname..."
         />
-        <p>{errors && errors.lastname}</p>
+        <p className="error_message">{errors && errors.lastname}</p>
 
         <label htmlFor="nationality">Nationality: </label>
         <input 
@@ -118,7 +123,7 @@ const Form = ({ arrayTeams }) => {
           onChange={handleOnChange} 
           placeholder="Your driver's nationality..."
         />
-        <p>{errors.nationality}</p>
+        <p className="error_message">{errors.nationality}</p>
 
         <label htmlFor="dob">Date of birth: </label>
         <input 
@@ -129,7 +134,7 @@ const Form = ({ arrayTeams }) => {
           onChange={handleOnChange} 
           placeholder="Valid format 'yyyy-mm-dd'"
         />
-        <p>{errors.dob}</p>
+        <p className="error_message">{errors.dob}</p>
 
         <label htmlFor="image"> Profile pic: </label>
         <input 
@@ -140,7 +145,7 @@ const Form = ({ arrayTeams }) => {
           onChange={handleOnChange}
           placeholder="Insert an URL here..."
         />
-        <p>{errors.image}</p>
+        <p className="error_message">{errors.image}</p>
 
         <label htmlFor="description">Description: </label>
         <textarea
@@ -154,11 +159,11 @@ const Form = ({ arrayTeams }) => {
           maxLength={2501}
           placeholder="Insert a brief description here..."
         />
-        <p>{errors.description}</p>
+        <p className="error_message">{errors.description}</p>
     
-        <div>
+        <div id="allTeams_container">
           Select your driver's teams:
-          <p>{errors.teams}</p>
+          <p className="error_message">{errors.teams}</p>
 
           {arrayTeams?.map(team => {
             return (

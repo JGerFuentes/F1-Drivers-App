@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 const URL = 'http://localhost:3001/drivers';
@@ -20,7 +20,7 @@ const Detail = () => {
         }
 
       } catch (error) {
-        console.error('Ocurrio lo siguiente: ', error)
+        console.error('This is what happened: ', error)
         return ({error: error.message})
       }
     }
@@ -29,7 +29,7 @@ const Detail = () => {
   }, [id])
 
   return (
-    <div>
+    <div className="detail_container">
       {driver.driver_name && (
         <>
         <h2>{driver.driver_name}</h2>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { getAllDrivers, getAllTeams } from './redux/actions'
 import LandingPage from './components/LandingPage/LandingPage';
 import HomePage from './components/HomePage/HomePage';
@@ -10,9 +10,8 @@ import Form from './components/Form/Form';
 import Detail from './components/Detail/Detail';
 import About from './components/About/About';
 import Error from './components/Error/Error';
-import './App.css'
+// import './App.css'
 const URL = 'http://localhost:3001/drivers'
-
 
 const App = () => {
   const { pathname } = useLocation();
@@ -62,12 +61,15 @@ const App = () => {
 
       <Routes>
         <Route path='/' element={ <LandingPage enterHome={enterHome}/> }/>
+
         <Route path='/home' element={ <HomePage arrayDrivers={arrayDrivers} arrayTeams={arrayTeams} foundDrivers={foundDrivers}/> }/>
+
         <Route path='/form' element={ <Form arrayTeams={arrayTeams}/> }/>
+
         <Route path='/detail/:id' element={ <Detail /> }/>
 
-        {/* Si llego 😁 */}
         <Route path='/about' element={ <About/> }/>
+        
         <Route path='*' element={ <Error /> }/> 
       </Routes>
       

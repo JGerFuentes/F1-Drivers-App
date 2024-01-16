@@ -1,9 +1,8 @@
-import React from 'react';
 import Card from '../Card/Card';
 
 const Drivers = ({ arrayDrivers }) => {
   return (
-    <div>
+    <div className="drivers_container">
       {arrayDrivers?.map((driver) => {
         return(
           <Card

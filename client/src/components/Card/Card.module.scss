@@ -1,0 +1,31 @@
+.card {
+    background-color: brown;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+    // align-content: center;
+    max-width: 50vh;
+    gap:1em;
+    
+}
+
+#info_container {
+    background-color: rgb(184, 239, 146);
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+    
+}
+
+#teams_container {
+    background-color: cornsilk;
+    display: flex;
+    flex-flow: column wrap;
+    min-width: 18vh;
+    align-items: center;
+    align-content: center;
+
+}

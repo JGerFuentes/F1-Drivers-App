@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
@@ -77,32 +77,31 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
 
   //Invocación de la función 'pageLinkersGenerator' de la carpeta 'utils'.
   const linksGenerator = pageLinkersGenerator(currentPage, totalPages, goToPage);
-
-  //Función para volver al tope de página.
-  const backToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
+  
   const handleFilter = (event) => {
     setFilter(event.target.value);
     setAux(true);
     setCurrentPage(1);
   };
-
+  
   const handleOrder = (event) => {
     setOrder(event.target.value);
     setAux(true);
     setCurrentPage(1);
   };
 
+  const returnToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <div>
+    <div className="home_container">
       {!searching && <div>
-        <div>
-            FILTER:
+        <div className="filters_container">
+            <h5>FILTER DRIVERS:</h5>
             <label key='teamFilter'>
                 By Team
                 <select onChange={handleFilter} value={filter}>
@@ -126,8 +125,8 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
             </label>
         </div>
 
-        <div>
-            ORDER:
+        <div className="order_container">
+            <h5>ORDER DRIVERS:</h5>
             <label key='lastnameOrder'>
                 By Lastname
                 <select onChange={handleOrder} value={order}>
@@ -148,7 +147,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       </div>}
 
       {!searching && 
-        <div>
+        <div className="pagination_container">
           <h2>Thy Driver's List</h2>
           <div>
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
@@ -163,7 +162,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       <Drivers arrayDrivers={driversToShow}/>
       
       {!searching && 
-        <div>
+        <div className="pagination_container">
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
 
             <span>{linksGenerator}</span>
@@ -176,7 +175,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
         <button onClick={() => {setSearching(false); navigate('/home')}}>Back to the list</button>
       }
 
-      <button className="scroll-to-top" onClick={backToTop}>To the top</button>
+      <button className="scroll-to-top" onClick={returnToTop}>Return to top</button>
     </div>
     
 
