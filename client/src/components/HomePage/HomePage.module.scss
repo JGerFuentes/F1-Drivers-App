@@ -1,0 +1,36 @@
+@import '../../styles/fonts.scss';
+@import '../../styles/variables.scss';
+
+.home_container {
+  background-image: url("https://i.imgur.com/rf5lbXk.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  align-content: center;
+  justify-content: center;
+  // width: 215vh;
+  // min-height: 100vh;
+  // font-family: $philospher;
+  // font-weight: bolder;
+  // font-size: large;
+  // display: flex;
+  
+}
+
+.scroll_button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .scroll_button:hover {
+    background-color: #0056b3;
+  }

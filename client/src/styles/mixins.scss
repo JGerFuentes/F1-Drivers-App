@@ -1,34 +1,35 @@
-//Min widths for:
-//Smartphones, iPhone, portrait 480x320 phones
-$screen-sm: 18em; //320px
+//Breakpoint-widths for:
+
+//Most smartphones and iPhones
+$screen-sm: 26.87em; //430px max
 
 //Portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones
-$screen-md: 40em; //641px
+$screen-md: 51.87em; //830px
 
 //Big landscape tablets, laptops, and desktops
-$screen-lg: 64em; //1025px
+$screen-lg: 64em; //1024px
 
 //Hi-res laptops and desktops
-$screen-x_lg: 80em; //1281px
+$screen-x_lg: 80em; //1280px
 
 
 //Mixin for small devices:
 @mixin sm {
-    @media only screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+    @media only screen and (max-width: $screen-sm) {
         @content;
     }
 }
 
 //Mixin for tablets:
 @mixin md {
-    @media only screen and (min-width: $screen-md) and (max-width: $screen-lg) {
+    @media only screen and (min-width: $screen-sm) and (max-width: $screen-md)  {
         @content;
     }
 }
 
-//Mixin for patops and desktops
+//Mixin for laptops and desktops
 @mixin lg {
-    @media only screen and (min-width: $screen-lg) and (max-width: $screen-x_lg) {
+    @media only screen and (min-width: $screen-md) and (max-width: $screen-lg) {
         @content;
     }
 }
@@ -41,10 +42,10 @@ $screen-x_lg: 80em; //1281px
 }
 
 //Mixin for flex displays
-@mixin flex($direction, $wrap, $justify, $align, $space: 0) {
-    display: flex;
-    flex-flow: $direction $wrap;
-    justify-content: $justify;
-    align-items: $align;
-    gap: $space;
-}
+// @mixin flex($direction, $wrap, $justify, $align, $space: 0) {
+//     display: flex;
+//     flex-flow: $direction $wrap;
+//     justify-content: $justify;
+//     align-items: $align;
+//     gap: $space;
+// }        

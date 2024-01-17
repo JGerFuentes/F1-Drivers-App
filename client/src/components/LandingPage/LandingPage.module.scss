@@ -1,14 +1,15 @@
-body {
-    background-image: url("https://i.imgur.com/tv8HNAa.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    align-content: center;
-    justify-content: center;
-}
-
 @import '../../styles/fonts.scss';
+@import '../../styles/variables.scss';
+
+body {
+  background-image: url("https://i.imgur.com/tv8HNAa.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  align-content: center;
+  justify-content: center;
+}
 
 .landing_container {
     font-family: $philospher;
@@ -19,55 +20,54 @@ body {
     grid-gap: 0.3em;
     grid-auto-flow: column;
     grid-auto-columns: auto;
-    // align-content: center;
-    // justify-content: center;
+
+    //Breakpoint for small devices: 430px
+    @include sm {
+      display: flex;
+      flex-flow: column wrap;
+    }
 }
 
 .landing_container > div {
-    margin: 0.5em;
-    padding: 0.5em;
-    border-radius: 10px;
-    background-color: #242424e6;
-  }
+  margin: 0.5em;
+  padding: 0.5em;
+  border-radius: 10px;
+  background-color: $background-container-color;
+}
   
-  #div1 { 
-    grid-column-start: 1;
-    grid-row-start: 1;
-    color: #f8f392;
-  }
+#div1 { 
+  grid-column-start: 1;
+  grid-row-start: 1;
+  color: $aux-color-1;
+}
   
-  #div2 {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    color: #fedb15;
-  }
+#div2 {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  color: $aux-color-2;
+}
   
-  #div3 {
-    grid-column-start: 3;
-    grid-row-start: 3;
-    color: #f53c0e;
-  }
-  
-  #button {
-    grid-column-start: 4;
-    grid-row-start: 4;
-    margin: 0.5em;
-    padding: 0.5em;
-    background-color: #242424e6;
-    color: #1598fd;
-    border: 1px solid #1598fddd;
-    cursor: pointer;
-    transition: border-color 0.25s;
-    }
-    #button:hover {
-        border-color: #3ff245;
-        color: #3ff245
-    }
-    button:focus,
-    button:focus-visible {
-        outline: 4px auto -webkit-focus-ring-color;
-    }
+#div3 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+  color: $aux-color-3;
+}
+
+#button {
+  grid-column-start: 4;
+  grid-row-start: 4;
+  margin: 0.5em;
+  padding: 0.5em;
+  background-color: $background-container-color;
+  color: $button-text-color;
+  border: 1px solid $button-border-color;
+  cursor: pointer;
+}
+
+#button:hover {
+    border-color: $hover-color;
+    color: $hover-color;
+}
 
 
 
-//Breakpoint for small devices: 430px

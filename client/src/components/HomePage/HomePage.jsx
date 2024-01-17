@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import Drivers from '../Drivers/Drivers';
 import pageLinkersGenerator from '../../utils/pageLinkersGenerator';
 import { orderDrivers, filterDrivers } from '../../redux/actions';
+import styles from './HomePage.module.scss';
 
 const driversToRender = 9; //Cantidad de drivers a renderizar según el paginado indicado para el componente 'HomePage'.
 const searching_pagination = 15; //Cantidad de drivers a renderizar para el caso de búsquedas realizadas por el usuario.
@@ -98,9 +99,9 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
   };
 
   return (
-    <div className="home_container">
+    <div className={styles.home_container}>
       {!searching && <div>
-        <div className="filters_container">
+        <div className={styles.filters_container}>
             <h5>FILTER DRIVERS:</h5>
             <label key='teamFilter'>
                 By Team
@@ -125,7 +126,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
             </label>
         </div>
 
-        <div className="order_container">
+        <div className={styles.order_container}>
             <h5>ORDER DRIVERS:</h5>
             <label key='lastnameOrder'>
                 By Lastname
@@ -147,7 +148,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       </div>}
 
       {!searching && 
-        <div className="pagination_container">
+        <div className={styles.pagination_container}>
           <h2>Thy Driver's List</h2>
           <div>
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
@@ -162,7 +163,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       <Drivers arrayDrivers={driversToShow}/>
       
       {!searching && 
-        <div className="pagination_container">
+        <div className={styles.pagination_container}>
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
 
             <span>{linksGenerator}</span>
@@ -175,7 +176,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
         <button onClick={() => {setSearching(false); navigate('/home')}}>Back to the list</button>
       }
 
-      <button className="scroll-to-top" onClick={returnToTop}>Return to top</button>
+      <button className={styles.scroll_button} onClick={returnToTop}>Return to top</button>
     </div>
     
 
