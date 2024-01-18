@@ -100,11 +100,12 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
 
   return (
     <div className={styles.home_container}>
-      {!searching && <div>
-        <div className={styles.filters_container}>
+
+      {!searching && <div className={styles.filters_and_sort}>
+        <div className={styles.wrapper}>
             <h5>FILTER DRIVERS:</h5>
             <label key='teamFilter'>
-                By Team
+                Team
                 <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers' value='allDrivers'>All drivers</option>
                     {arrayTeams && arrayTeams.map((team) => {
@@ -117,7 +118,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
                 </select>
             </label>
             <label key='sourceFilter'>
-                By Source
+                Source
                 <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers2' value='allDrivers'>All Drivers</option>
                     <option key='DB' value='DB'>Database</option>
@@ -126,10 +127,10 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
             </label>
         </div>
 
-        <div className={styles.order_container}>
-            <h5>ORDER DRIVERS:</h5>
+        <div className={styles.wrapper}>
+            <h5>SORT DRIVERS:</h5>
             <label key='lastnameOrder'>
-                By Lastname
+                Lastname
                 <select onChange={handleOrder} value={order}>
                     <option value='no-order' defaultValue={true}>No order</option>
                     <option value='L-ASC'>Ascendent order</option>
@@ -137,7 +138,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
                 </select>
             </label>
             <label key='dobOrder'>
-                By Birthdate
+                Birthdate
                 <select onChange={handleOrder} value={order}>
                     <option value='no-order' defaultValue={true}>No order</option>
                     <option value='N-ASC'>Ascendent order</option>
@@ -148,9 +149,9 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       </div>}
 
       {!searching && 
-        <div className={styles.pagination_container}>
-          <h2>Thy Driver's List</h2>
-          <div>
+        <div >
+          <h1>Thy Driver's List</h1>
+          <div className={styles.pagination_container}>
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
 
             <span>{linksGenerator}</span>
@@ -172,14 +173,14 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
         </div>
       }
 
-      {searching && 
-        <button onClick={() => {setSearching(false); navigate('/home')}}>Back to the list</button>
-      }
+      <div className={styles.nav_buttons}>
+        {searching && 
+          <button onClick={() => {setSearching(false); navigate('/home')}}>Back to the list</button>
+        }
 
-      <button className={styles.scroll_button} onClick={returnToTop}>Return to top</button>
+        <button className={styles.scroll_button} onClick={returnToTop}>Return to top</button>
+      </div>
     </div>
-    
-
   )
 }
 

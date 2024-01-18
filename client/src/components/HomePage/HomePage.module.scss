@@ -2,35 +2,102 @@
 @import '../../styles/variables.scss';
 
 .home_container {
-  background-image: url("https://i.imgur.com/rf5lbXk.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  align-content: center;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
   justify-content: center;
-  // width: 215vh;
-  // min-height: 100vh;
-  // font-family: $philospher;
-  // font-weight: bolder;
-  // font-size: large;
-  // display: flex;
-  
+
+  .wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+
+    @include sm {
+      gap: 0.1em;
+    }
+    
+    label {
+      font-weight: light;
+      font-size: 1em;
+      margin: 0.5em;
+      padding: 0.3em;
+
+      @include md {
+        font-size: 0.9em;
+      }
+
+      @include sm {
+        font-size: 0.8em;
+        width: 9em;
+        
+      }
+    }
+    select {
+      font-family: inherit;
+      font-size: 0.95em;
+      text-align: center;
+      margin: 0.5em 0.5em 0.5em 0.8em;
+      padding: 0.3em;
+      width: 11em;
+      
+      @include sm {
+        font-size: 0.8em;
+        width: 9em;
+        margin: 0.3em 0.3em 0.3em 0.6em;
+      }
+    }
+  }
+
+  .pagination_container {
+    span {
+      color: $white;
+      font-size: 1.15em;
+      font-weight: 600;
+      margin: 0.3em;
+
+      @include md {
+        font-size: 1.05em;
+      }
+
+      @include sm {
+        font-size: 1em;
+        margin: 0.2em;
+      }
+
+      cursor: pointer;
+      &:hover {
+        color: $hover-color2;
+      }
+      &:active {
+        color: $button-text-color;
+      }
+    }
+  }
+
+  .nav_buttons {
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: space-evenly;
+    align-content: space-around;
+    gap: 3em;
+  }
 }
 
-.scroll_button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
+// .scroll_button {
+//     position: fixed;
+//     bottom: 20px;
+//     right: 20px;
+//     padding: 10px;
+//     background-color: #007bff;
+//     color: #fff;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     font-size: 14px;
+//   }
   
-  .scroll_button:hover {
-    background-color: #0056b3;
-  }
+//   .scroll_button:hover {
+//     background-color: #0056b3;
+//   }

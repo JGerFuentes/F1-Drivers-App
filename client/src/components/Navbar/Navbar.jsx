@@ -6,12 +6,12 @@ import f1_logo from '../../assets/f1_logo.svg';
 
 const Navbar = ({onSearch}) => {
     return (
-        <div className={styles.navbar_container}>
-            <div>
-                <img src={f1_logo} title='Home' alt="f1_logo" height="150px" width="150px"/>
+        <nav className={styles.navbar_container}>
+            <div className={styles.logo}>
+                <img src={f1_logo} title='Home' alt="f1_logo" height="130px" width="100px"/>
             </div>
 
-            <div>
+            <div className={styles.secondSection}>
                 <Link to='/home'>
                     <button id={styles.button1}>HOME</button>
                 </Link>
@@ -24,9 +24,9 @@ const Navbar = ({onSearch}) => {
                     <button id={styles.button3}>ABOUT</button>
                 </Link>
 
-                <Searchbar onSearch={onSearch}/>
+                <Searchbar onSearch={onSearch} />
             </div>
-        </div>
+        </nav>
     )
 }
 

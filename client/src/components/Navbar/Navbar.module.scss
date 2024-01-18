@@ -4,59 +4,78 @@
 .navbar_container {
     background-color: $black;
     margin:0;
-    padding:0;
-    min-height: fit-content;
-    padding: 0em 0.80em;
+    max-height: fit-content;
+    max-width: 100%;
+    padding: 0em 0.3em;
+    position: fixed top;
     display: flex;
     flex-direction: row;
+    gap: 0.25em;
     justify-content: space-between;
     align-items: center;
-    
+
     @include sm {
-        flex-direction: column;
-        padding: 0em 0.5em 0.75em 0.5em;
+        flex-flow: column wrap;
+        padding: 0em 0.1em 0.5em 0.1em;
+    }
+
+    #button1 {
+        color: $aux-color-1;
+        margin: 0.5em;
+        padding: 0.5em;
+        
+        &:hover {
+            border-color: $hover-color1;
+            color: $hover-color1;
+        }
     }
     
-    font-family: $philospher;
-    font-size: medium;
-    font-weight: light;
-}
+    #button2 {
+        color: $aux-color-2;
+        margin: 0.5em;
+        padding: 0.5em;
+        
+        &:hover {
+            border-color: $hover-color1;
+            color: $hover-color1;
+        }
+    }
+    
+    #button3 {
+        color: $aux-color-3;
+        margin: 0.5em;
+        padding: 0.5em;
+        
+        &:hover {
+            border-color: $hover-color1;
+            color: $hover-color1;
+        }
+    }
 
-#button1 {
-    color: $aux-color-1;
-    margin: 0.5em;
-    padding: 0.5em;
-    background-color: $background-container-color;
-    border: 1px solid $button-border-color;
-    cursor: pointer;
-}
-#button1:hover {
-    border-color: $hover-color;
-    color: $hover-color;
-}
+    .logo {
+        flex:1;
+        display: flex;
+        justify-content: center;
+    }
 
-#button2 {
-    color: $aux-color-2;
-    margin: 0.5em;
-    padding: 0.5em;
-    background-color: $background-container-color;
-    border: 1px solid $button-border-color;
-    cursor: pointer;
-}
-#button2:hover {
-    border-color: $hover-color;
-    color: $hover-color;
-}
+    .secondSection {
+        flex: 3;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
 
-#button3 {
-    color: $aux-color-3;
-    margin: 0.5em;
-    padding: 0.5em;
-    background-color: $background-container-color;
-    border: 1px solid $button-border-color;
-    cursor: pointer;
-}
-#button3:hover {
-    border-color: $hover-color;
-    color: $hover-color;
+        @include md {
+            // max-height: 200px;
+            button {
+                font-size: 0.95em
+            }
+        }
+        @include sm {
+            width: 100%;
+            button {
+                font-size: 0.85em;
+            }
+        }
+    }
 }

@@ -9,7 +9,7 @@ const pageLinkersGenerator = (currentPage, totalPages, goToPage) => {
   
     //Fijo el valor del índice '1' pare retornar fácilmente a la primera pagina.
     pages.push(
-      <span key={1} onClick={() => goToPage(1)} style={{ cursor: 'pointer', margin: '0 5px' }}>
+      <span key={1} onClick={() => goToPage(1)}>
         1
       </span>
     )
@@ -26,7 +26,7 @@ const pageLinkersGenerator = (currentPage, totalPages, goToPage) => {
     //Con ayuda de un bucle renderizo los índices definidos y les asocio la función 'goToPage'. Luego, los presentaré en el componente "HomePage" entre los botones 'Previous' y 'Next'.
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
-        <span key={i} onClick={() => goToPage(i)} style={{ cursor: 'pointer', margin: '0 5px' }}>
+        <span key={i} onClick={() => goToPage(i)}>
           {i}
         </span>
       );
