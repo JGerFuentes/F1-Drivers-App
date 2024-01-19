@@ -14,7 +14,6 @@ const Card = ({driver_id, driver_name, lastname, image, teams}) => {
         </div>
           
         <div className={styles.teams_container}>
-          {/* <h3>Teams:</h3> */}
           { teams?.map((team, index) => {
             return(
                 <h4 key={index}>{team}</h4>

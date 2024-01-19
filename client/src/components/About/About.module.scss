@@ -1,0 +1,94 @@
+@import '../../styles/fonts.scss';
+@import '../../styles/variables.scss';
+@import '../../styles/wallpapers.scss';
+
+.about_container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    background-image: $background-image-about;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: $black;
+    font-weight: bolder;
+
+    h2 {
+        font-weight: bolder;
+    }
+
+    h3 {
+        color: $white;
+        background-color: $background-container-color;
+        border-radius: 8em;
+        padding: 0.3em;
+    }
+    h4{
+        color: $white;
+        background-color: $background-container-color;
+        border-radius: 8em;
+        padding: 0.3em;
+    }
+
+    #profilePic {
+        align-items: center;
+        justify-content: center;
+        height: 15em;
+        width: 15em;
+        border-radius: 50%;
+        // border-color: $hover-color2;
+        // border: 2em;
+        margin: 0.2em;
+        padding: 0.1em;
+
+        @include md {
+            height: 12em;
+            width: 12em;
+        }
+        @include sm {
+            height: 10em;
+            width: 10em;
+        }
+    }
+
+    div {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1em;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: $background-container-color2;
+        border-radius: 1em;
+        height: fit-content;
+        padding: 0.5em;
+        margin: 0.5em;
+        
+        // img {
+        //     height: auto;
+        // }
+    }
+
+    p {
+        font-size: 1em;
+        margin:auto;
+        padding: 1.5em;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        background-color: $background-container-color;
+        border-radius: 1em;
+        padding: 0.5em;
+        margin: 0.5em;
+
+        @include md {
+            font-size: 0.95em;;
+        }
+
+        @include sm {
+            font-size: 0.8em;
+        }
+    }
+    
+}

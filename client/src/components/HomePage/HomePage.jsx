@@ -104,11 +104,9 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       {!searching && 
         <div className={styles.filters_and_sort}>
           <div className={styles.wrapper}>
-            <h5>FILTER DRIVERS:</h5>
+            <h4>FILTER DRIVERS:</h4>
 
-            <label key='teamFilter'>
-                Team
-
+            <label key='teamFilter'> Team
                 <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers' value='allDrivers'>All drivers</option>
                     {arrayTeams && arrayTeams.map((team) => {
@@ -119,44 +117,34 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
                         )
                     })}
                 </select>
-
             </label>
 
-            <label key='sourceFilter'>
-                Source
-
+            <label key='sourceFilter'> Source
                 <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers2' value='allDrivers'>All Drivers</option>
                     <option key='DB' value='DB'>Database</option>
                     <option key='API' value='API'>API</option>
                 </select>
-
             </label>
           </div>
 
           <div className={styles.wrapper}>
-            <h5>SORT DRIVERS:</h5>
+            <h4>SORT DRIVERS:</h4>
 
-            <label key='lastnameOrder'>
-                Lastname
-
+            <label key='lastnameOrder'> Lastname
                 <select onChange={handleOrder} value={order}>
                     <option value='no-order' defaultValue={true}>No order</option>
                     <option value='L-ASC'>Ascendent order</option>
                     <option value='L-DESC'>Descendent order</option>
                 </select>
-
             </label>
 
-            <label key='dobOrder'>
-                Birthdate
-
+            <label key='dobOrder'> Birthdate
                 <select onChange={handleOrder} value={order}>
                     <option value='no-order' defaultValue={true}>No order</option>
                     <option value='N-ASC'>Ascendent order</option>
                     <option value='N-DESC'>Descendent order</option>
                 </select>
-
             </label>
 
           </div>

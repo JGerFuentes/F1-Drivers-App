@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addDriver } from '../../redux/actions';
 import validations from '../../utils/validations';
+import styles from './Form.module.scss';
 
 
 const Form = ({ arrayTeams }) => {
@@ -89,76 +90,75 @@ const Form = ({ arrayTeams }) => {
   }
 
   return (
-    <div className="form_container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form_container}>
 
         <label htmlFor="name">Name: </label>
-        <input 
-          key='driver_name'
-          name='driver_name'
-          type='text' 
-          value={userInput.driver_name} 
-          onChange={handleOnChange} 
-          placeholder="Your driver's name here..."
-        />
+          <input 
+            key='driver_name'
+            name='driver_name'
+            type='text' 
+            value={userInput.driver_name} 
+            onChange={handleOnChange} 
+            placeholder="Your driver's name here..."
+          />
         <p className="error_message">{errors.driver_name}</p>
 
         <label htmlFor="lastname">Lastname: </label>
-        <input 
-          key='lastname'
-          name='lastname'
-          type='text' 
-          value={userInput.lastname} 
-          onChange={handleOnChange} 
-          placeholder="Your driver's lastname..."
-        />
+          <input 
+            key='lastname'
+            name='lastname'
+            type='text' 
+            value={userInput.lastname} 
+            onChange={handleOnChange} 
+            placeholder="Your driver's lastname..."
+          />
         <p className="error_message">{errors && errors.lastname}</p>
 
         <label htmlFor="nationality">Nationality: </label>
-        <input 
-          key='nationality'
-          name='nationality'
-          type='text' 
-          value={userInput.nationality} 
-          onChange={handleOnChange} 
-          placeholder="Your driver's nationality..."
-        />
+          <input 
+            key='nationality'
+            name='nationality'
+            type='text' 
+            value={userInput.nationality} 
+            onChange={handleOnChange} 
+            placeholder="Your driver's nationality..."
+          />
         <p className="error_message">{errors.nationality}</p>
 
         <label htmlFor="dob">Date of birth: </label>
-        <input 
-          key='dob'
-          name='dob'
-          type='text' 
-          value={userInput.dob} 
-          onChange={handleOnChange} 
-          placeholder="Valid format 'yyyy-mm-dd'"
-        />
+          <input 
+            key='dob'
+            name='dob'
+            type='text' 
+            value={userInput.dob} 
+            onChange={handleOnChange} 
+            placeholder="Valid format 'yyyy-mm-dd'"
+          />
         <p className="error_message">{errors.dob}</p>
 
         <label htmlFor="image"> Profile pic: </label>
-        <input 
-          key='image'
-          name='image' 
-          type='text' 
-          value={userInput.image}
-          onChange={handleOnChange}
-          placeholder="Insert an URL here..."
-        />
+          <input 
+            key='image'
+            name='image' 
+            type='text' 
+            value={userInput.image}
+            onChange={handleOnChange}
+            placeholder="Insert an URL here..."
+          />
         <p className="error_message">{errors.image}</p>
 
         <label htmlFor="description">Description: </label>
-        <textarea
-          key='description'
-          name='description'
-          value={userInput.description}
-          onChange={handleOnChange}
-          rows={10}
-          columns={20}
-          minLength={15}
-          maxLength={2501}
-          placeholder="Insert a brief description here..."
-        />
+          <textarea
+            key='description'
+            name='description'
+            value={userInput.description}
+            onChange={handleOnChange}
+            rows={10}
+            columns={20}
+            minLength={15}
+            maxLength={2501}
+            placeholder="Insert a brief description here..."
+          />
         <p className="error_message">{errors.description}</p>
     
         <div id="allTeams_container">
@@ -184,7 +184,7 @@ const Form = ({ arrayTeams }) => {
         
         <button type='submit' disabled={Form.driver_name || Object.keys(errors).length}>Create my driver!</button>
       </form>
-    </div>
+    
   )
 }
 

@@ -1,11 +1,18 @@
+import styles from './About.module.scss';
+
 const About = () => {
   return (
-    <div className="about_container">
+    <div className={styles.about_container}>
       <h2>Hello there! 👋🏽</h2>
-      <h3>My name is José Germán Fuentes.</h3> 
-      <h3>A.K.A. JGerFuentes 🤘🏽</h3>
-      <a href="https://www.linkedin.com/in/JGerFuentes" target="_blank"><img src="https://i.imgur.com/dBgRYCG.png" title="my_linked_in" alt="linked_in_logo" height="150px" width="200px"/></a>
+      <h3>My name is José Germán Fuentes.</h3>
+      
+      <img id={styles.profilePic} src="https://i.imgur.com/ItGxt4J.jpg" title="profilePic" alt="profilePic" />
+      <h4>A.K.A. JGerFuentes 🤘🏽</h4>
+      
+      <div>
+        <a href="https://www.linkedin.com/in/JGerFuentes" target="_blank"><img src="https://i.imgur.com/dBgRYCG.png" title="my_linked_in" alt="linked_in_logo" height="150px" width="200px"/></a>
         <a href="https://github.com/JGerFuentes" target="_blank"><img src="https://i.imgur.com/2Cp7VkW.png" title="my_github" alt="github_logo" height="100px" width="100px"/></a>
+      </div>
 
       <p>Recently graduated Biotechnology Technician, currently an Operator on a Wastewater Treatment Plant, I'm a newly formed Full Stack Web Developer 👨🏽‍💻 who aims to reach top level coding practices to make people's web interaction experience a richer, more productive, more intuitive and more comfortable one. 🚀
         <br/>
@@ -15,7 +22,7 @@ const About = () => {
         <br/>
         The technologies and frameworks implemented on this project are:
       </p>
-        <div className="logos_container">
+        <div>
           <img src="https://i.imgur.com/waXSNHF.png" title="js_logo" alt="js_logo" height="30px" width="30px"/>
           <img src="https://i.imgur.com/oVZ21pl.png" title="html_logo" alt="html_logo" height="30px" width="30px"/>
           <img src="https://i.imgur.com/HkCREuX.png" title="css_logo" alt="css_logo" height="30px" width="24px"/>
