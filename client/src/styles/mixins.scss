@@ -40,12 +40,3 @@ $screen-x_lg: 80em; //1280px
         @content;
     }
 }
-
-//Mixin for flex displays
-// @mixin flex($direction, $wrap, $justify, $align, $space: 0) {
-//     display: flex;
-//     flex-flow: $direction $wrap;
-//     justify-content: $justify;
-//     align-items: $align;
-//     gap: $space;
-// }        

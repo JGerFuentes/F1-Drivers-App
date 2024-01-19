@@ -1,0 +1,10 @@
+// @import '../../styles/fonts.scss';
+@import '../../styles/variables.scss';
+
+.drivers_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 2em;
+}

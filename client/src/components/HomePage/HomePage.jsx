@@ -101,11 +101,14 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
   return (
     <div className={styles.home_container}>
 
-      {!searching && <div className={styles.filters_and_sort}>
-        <div className={styles.wrapper}>
+      {!searching && 
+        <div className={styles.filters_and_sort}>
+          <div className={styles.wrapper}>
             <h5>FILTER DRIVERS:</h5>
+
             <label key='teamFilter'>
                 Team
+
                 <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers' value='allDrivers'>All drivers</option>
                     {arrayTeams && arrayTeams.map((team) => {
@@ -116,41 +119,54 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
                         )
                     })}
                 </select>
+
             </label>
+
             <label key='sourceFilter'>
                 Source
+
                 <select onChange={handleFilter} value={filter}>
                     <option key='allDrivers2' value='allDrivers'>All Drivers</option>
                     <option key='DB' value='DB'>Database</option>
                     <option key='API' value='API'>API</option>
                 </select>
-            </label>
-        </div>
 
-        <div className={styles.wrapper}>
+            </label>
+          </div>
+
+          <div className={styles.wrapper}>
             <h5>SORT DRIVERS:</h5>
+
             <label key='lastnameOrder'>
                 Lastname
+
                 <select onChange={handleOrder} value={order}>
                     <option value='no-order' defaultValue={true}>No order</option>
                     <option value='L-ASC'>Ascendent order</option>
                     <option value='L-DESC'>Descendent order</option>
                 </select>
+
             </label>
+
             <label key='dobOrder'>
                 Birthdate
+
                 <select onChange={handleOrder} value={order}>
                     <option value='no-order' defaultValue={true}>No order</option>
                     <option value='N-ASC'>Ascendent order</option>
                     <option value='N-DESC'>Descendent order</option>
                 </select>
+
             </label>
+
+          </div>
         </div>
-      </div>}
+      }
 
       {!searching && 
-        <div >
+        <div>
           <h1>Thy Driver's List</h1>
+
           <div className={styles.pagination_container}>
             <button onClick={previousPageHandler} disabled={currentPage === 1}>Previous</button>
 
@@ -158,8 +174,15 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
 
             <button onClick={nextPageHandler} disabled={currentPage >= totalPages}>Next</button>
           </div>
+
         </div>
       }
+
+      <div className={styles.nav_buttons}>
+        {searching && 
+          <button onClick={() => {setSearching(false); navigate('/home')}}>Back to the list</button>
+        }
+      </div>
 
       <Drivers arrayDrivers={driversToShow}/>
       
@@ -174,12 +197,9 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
       }
 
       <div className={styles.nav_buttons}>
-        {searching && 
-          <button onClick={() => {setSearching(false); navigate('/home')}}>Back to the list</button>
-        }
-
         <button className={styles.scroll_button} onClick={returnToTop}>Return to top</button>
       </div>
+      
     </div>
   )
 }

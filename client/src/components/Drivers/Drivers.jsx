@@ -1,8 +1,9 @@
 import Card from '../Card/Card';
+import styles from './Drivers.module.scss';
 
 const Drivers = ({ arrayDrivers }) => {
   return (
-    <div className="drivers_container">
+    <div className={styles.drivers_container}>
       {arrayDrivers?.map((driver) => {
         return(
           <Card

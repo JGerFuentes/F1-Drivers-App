@@ -56,17 +56,26 @@
         flex:1;
         display: flex;
         justify-content: center;
+        
+        img {
+            width: 6.25em;
+            height: 7em;
+
+            @include sm {
+                width: 6em;
+                height: 5em;
+            }
+        }
     }
 
     .secondSection {
-        flex: 3;
+        flex: 5;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
         align-items: center;
 
         @include md {
-            // max-height: 200px;
             button {
                 font-size: 0.95em
             }

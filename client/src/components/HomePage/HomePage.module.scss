@@ -1,11 +1,22 @@
 @import '../../styles/fonts.scss';
 @import '../../styles/variables.scss';
+@import '../../styles/wallpapers.scss';
 
 .home_container {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
+  background-image: $background-image-homepage;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  h1 {
+    color: $aux-color-2;
+    background-color: $aux-color-5;
+  }
 
   .wrapper {
     display: flex;
@@ -47,6 +58,11 @@
         width: 9em;
         margin: 0.3em 0.3em 0.3em 0.6em;
       }
+      cursor: pointer;
+
+      &:hover {
+        color: $aux-color-2;
+      }
     }
   }
 
@@ -78,26 +94,15 @@
 
   .nav_buttons {
     display: flex;
-    flex-flow: row wrap;
-    // justify-content: space-evenly;
-    align-content: space-around;
-    gap: 3em;
+
+    button {
+      background-color: $aux-color-5;
+      border-color: $aux-color-2;
+
+      &:hover {
+        color: $aux-color-1;
+        border-color: $aux-color-6;
+      }
+    }
   }
 }
-
-// .scroll_button {
-//     position: fixed;
-//     bottom: 20px;
-//     right: 20px;
-//     padding: 10px;
-//     background-color: #007bff;
-//     color: #fff;
-//     border: none;
-//     border-radius: 5px;
-//     cursor: pointer;
-//     font-size: 14px;
-//   }
-  
-//   .scroll_button:hover {
-//     background-color: #0056b3;
-//   }

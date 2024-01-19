@@ -4,7 +4,9 @@
 .searchbar_container {
     display: flex;
     align-items: center;
-
+    padding-left: 0.6em;
+    padding-right: 0.2em;
+    
     input {
         height: 1.3em;
         width: 13em;

@@ -29,18 +29,9 @@
   
   body {
     margin: 0;
-    padding: 0em 0.3em;
-    display: flex;
-    min-width: 300px;
+    padding: 0;
+    min-width: 310px;
     min-height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    background-image: url("https://i.imgur.com/tv8HNAa.jpg");
   }
   
   h1 {
@@ -108,20 +99,25 @@
       }
     }
   }
-  // button:focus,
-  // button:focus-visible {
-  //   outline: 4px auto -webkit-focus-ring-color;
-  // }
-  
-  // @media (prefers-color-scheme: light) {
-  //   :root {
-  //     color: #213547;
-  //     background-color: #ffffff;
-  //   }
-  //   a:hover {
-  //     color: #747bff;
-  //   }
-  //   button {
-  //     background-color: #f9f9f9;
-  //   }
-  // }
+
+footer {
+  display: flex;
+  height: 1.25em;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 0.25em;
+  background-color: $black;
+  font-family: $k2d;
+  font-size: 0.75em;
+  color: $white;
+
+  @include md {
+    font-size: 0.7em;
+  }
+
+  @include sm {
+    font-size: 0.6em;
+  }
+
+}
