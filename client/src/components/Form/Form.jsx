@@ -93,7 +93,8 @@ const Form = ({ arrayTeams }) => {
       <form onSubmit={handleSubmit} className={styles.form_container}>
 
         <label htmlFor="name">Name: </label>
-          <input 
+          <input
+            className={styles.text_input} 
             key='driver_name'
             name='driver_name'
             type='text' 
@@ -104,7 +105,8 @@ const Form = ({ arrayTeams }) => {
         <p className="error_message">{errors.driver_name}</p>
 
         <label htmlFor="lastname">Lastname: </label>
-          <input 
+          <input
+            className={styles.text_input} 
             key='lastname'
             name='lastname'
             type='text' 
@@ -115,7 +117,8 @@ const Form = ({ arrayTeams }) => {
         <p className="error_message">{errors && errors.lastname}</p>
 
         <label htmlFor="nationality">Nationality: </label>
-          <input 
+          <input
+            className={styles.text_input} 
             key='nationality'
             name='nationality'
             type='text' 
@@ -126,7 +129,8 @@ const Form = ({ arrayTeams }) => {
         <p className="error_message">{errors.nationality}</p>
 
         <label htmlFor="dob">Date of birth: </label>
-          <input 
+          <input
+            className={styles.text_input} 
             key='dob'
             name='dob'
             type='text' 
@@ -137,7 +141,8 @@ const Form = ({ arrayTeams }) => {
         <p className="error_message">{errors.dob}</p>
 
         <label htmlFor="image"> Profile pic: </label>
-          <input 
+          <input
+            className={styles.text_input} 
             key='image'
             name='image' 
             type='text' 
@@ -149,6 +154,7 @@ const Form = ({ arrayTeams }) => {
 
         <label htmlFor="description">Description: </label>
           <textarea
+            id={styles.description_input} 
             key='description'
             name='description'
             value={userInput.description}
@@ -161,13 +167,12 @@ const Form = ({ arrayTeams }) => {
           />
         <p className="error_message">{errors.description}</p>
     
-        <div id="allTeams_container">
-          Select your driver's teams:
-          <p className="error_message">{errors.teams}</p>
-
+        <h5>Select your driver's teams:</h5>
+        <p className="error_message">{errors.teams}</p>
+        <div id={styles.allTeams_container}>
           {arrayTeams?.map(team => {
             return (
-              <label key={team} htmlFor="teams">
+              <label id={styles.teams_labels} key={team} htmlFor="teams">
                 <input
                   type='checkbox'
                   name='teams'
@@ -182,7 +187,7 @@ const Form = ({ arrayTeams }) => {
           }
         </div>
         
-        <button type='submit' disabled={Form.driver_name || Object.keys(errors).length}>Create my driver!</button>
+        <button type='submit' disabled={Form.driver_name || Object.keys(errors).length}>Machine, create my driver!</button>
       </form>
     
   )

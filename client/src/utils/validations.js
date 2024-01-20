@@ -19,7 +19,7 @@ const validations = (inputs) => {
 
     //Lastname validations
     if (!inputs.lastname) {
-        errors.lastname = "Everyone needs a lastname."
+        errors.lastname = "Now give your driver a lastname."
     } else if (!onlyTextRegex.test(inputs.lastname)) {
         errors.lastname = "Please, introduce a valid lastname."
     } else if (inputs.lastname.length === 1) {
@@ -57,7 +57,7 @@ const validations = (inputs) => {
 
     //Image validations
     if (!inputs.image) {
-        errors.image = "Please, associate an image to your driver"
+        errors.image = "Please, associate an image to your driver."
     } else if (!urlRegex.test(inputs.image)) {
         errors.image = "Please, insert a valid URL"
     } else if (!imageExtensionRegex.test(inputs.image)) {
@@ -70,7 +70,7 @@ const validations = (inputs) => {
     } else if(inputs.description.length < 15) {
         errors.description = "Maybe you can try it a little harder."
     } else if (inputs.description.length > 2500) {
-        errors.description = "Perhaps that's a bit too much, pal.Keep it under 500 characters."
+        errors.description = "Perhaps that's a bit too much, pal. Keep it under 500 characters."
     }
 
     //Teams validations

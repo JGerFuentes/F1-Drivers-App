@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import styles from './Detail.module.scss';
 const URL = 'http://localhost:3001/drivers';
 
 
@@ -29,29 +30,47 @@ const Detail = () => {
   }, [id])
 
   return (
-    <div className="detail_container">
+    <div className={styles.detail_container}>
       {driver.driver_name && (
         <>
-        <h2>{driver.driver_name}</h2>
-        <h2>{driver.lastname}</h2>
+        <div className={styles.container_1}>
+          <div id={styles.name_wrapper}>
+            <h2>{driver.driver_name}</h2>
+            <h2>{driver.lastname}</h2>
+            <img src={driver.image} alt={driver.lastname}/>
+          </div>
 
-        <img src={driver.image} alt={driver.lastname} heigth="200px" width="200px"></img>
+          <div className={styles.container_2}>
+            <div id={styles.nationality_wrapper}>
+              <h3>Nationality:</h3>
+              <h4>{driver.nationality}</h4>
+            </div>
 
-        <h3>Nationality:</h3>
-        <h4>{driver.nationality}</h4>
+            <div id={styles.birthdate_wrapper}>
+              <h3>Birthdate:</h3>
+              <h4>{driver.dob}</h4>
+            </div>
+          </div>
 
-        <h3>Birthdate:</h3>
-        <h4>{driver.dob}</h4>
+        </div>
 
-        <h3>Teams:</h3>
-        <h4>{driver.teams}</h4>
+        <div className={styles.container_3}>
+          <h4>ID: {driver.driver_id}</h4>
+          
+          {driver.origin === 'db' ? <h4>Source: Database</h4> : 
+          <h4>Source: API</h4>}
+        </div>
 
-        <h3>Description:</h3> 
-        <p>{driver.description}</p>
+        <div className={styles.teams_wrapper}>
+          <h3>Teams:</h3>
+          <h4>{driver.teams}</h4>
+        </div>
 
-        <h4>ID: {driver.driver_id}</h4>
-        
-        {driver.origin === 'db' ? <h4>Source: Database</h4> : <h4>Source: API</h4>}
+        <div className={styles.description_wrapper}>
+          <h3>Description:</h3> 
+          <p>{driver.description}</p>
+        </div>
+
         </>
       )}
     </div>

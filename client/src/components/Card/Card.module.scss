@@ -15,9 +15,9 @@
     font-size: 0.9em;
     background-color: $background-container-color;
     
-    // &:hover {
-        // background-color: $white;
-    // }
+    &:hover {
+        background-color: $background-container-color2;
+    }
     
     .info_container {
         img {

@@ -1,0 +1,77 @@
+
+@import '../../styles/variables.scss';
+@import '../../styles/wallpapers.scss';
+
+.detail_container {
+    background-image: $background-image-detail;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-weight: bolder;
+
+    .container_1 {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+
+        #name_wrapper {
+            background-color: $background-container-color2;
+            color: $black;
+
+            h2 {
+                margin:0;
+                padding:0.1em;
+                text-align: center;
+
+            }
+        }
+        
+        img {
+            height: 13em;
+            width: 13em;
+            border-radius: 50%;
+        }
+
+        .container_2 {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
+            
+            #nationality_wrapper {
+                background-color: $background-container-color2;
+                color: $black;
+            }
+    
+            #birthdate_wrapper {
+                background-color: $background-container-color2;
+                color: $black;
+            }
+        }
+
+    }
+    
+    .container_3 {
+        background-color: $background-container-color;
+        color: $white;
+    }
+
+    .teams_wrapper {
+        background-color: $background-container-color2;
+        color: $black;
+    }
+
+    .description_wrapper {
+        background-color: $background-container-color;
+        color: $white;
+    }
+
+    
+}

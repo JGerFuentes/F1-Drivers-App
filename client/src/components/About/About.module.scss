@@ -32,14 +32,29 @@
         padding: 0.3em;
     }
 
+    h5 {
+        font-weight: bolder;
+        font-size: 1.2em;
+        text-align: center;
+        margin: 0.3em;
+        padding: 0.2em;
+        color: $black;
+
+        @include md {
+        font-size: 1em;
+        }
+
+        @include sm {
+        font-size: 0.85em;
+        }
+    }
+
     #profilePic {
         align-items: center;
         justify-content: center;
         height: 15em;
         width: 15em;
         border-radius: 50%;
-        // border-color: $hover-color2;
-        // border: 2em;
         margin: 0.2em;
         padding: 0.1em;
 
@@ -57,17 +72,78 @@
         display: flex;
         flex-flow: row wrap;
         gap: 1em;
+        height: fit-content;
+        padding: 0.5em;
+        margin: 0.5em;
         justify-content: space-evenly;
         align-items: center;
         background-color: $background-container-color2;
         border-radius: 1em;
-        height: fit-content;
-        padding: 0.5em;
-        margin: 0.5em;
         
-        // img {
-        //     height: auto;
-        // }
+        img {
+            height: 5em;
+            width: 5em;
+
+            @include md {
+                height: 4em;
+                width: 4em;
+            }
+
+            @include sm {
+                height: 3em;
+                width: 3em;
+            }
+        }
+
+        #logo_1 {
+            height: 1.87em;
+            width: 1.9em;
+        }
+
+        #logo_2 {
+            height: 1.87em;
+            width: 1.9em;
+        }
+
+        #logo_3 {
+            height:1.87em;
+            width:1.5em;
+        }
+
+        #logo_4 {
+            height: 1.87em;
+            width: 2.5em;
+        }
+
+        #logo_5 {
+            height: 1.87em;
+            width: 1.9em;
+        }
+
+        #logo_6 {
+            height: 1.6em;;
+            width: 5.2em;
+        }
+
+        #logo_7 {
+            height: 1.87em;
+            width: 3.5em;
+        }
+
+        #logo_8{
+            height: 1.8em;
+            width: 4.75em;
+        }
+
+        #logo_9 {
+            height:5em;
+            width:5.3em;
+        }
+
+        #logo_10 {
+            height: 2.5em;
+            width:5.3em;
+        }
     }
 
     p {
