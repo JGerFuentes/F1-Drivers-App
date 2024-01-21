@@ -21,8 +21,8 @@ const Detail = () => {
         }
 
       } catch (error) {
-        console.error('This is what happened: ', error)
-        return ({error: error.message})
+        console.error('This is what happened: ', error.message)
+        window.alert('Invalid ID. Please, try another one.')
       }
     }
 

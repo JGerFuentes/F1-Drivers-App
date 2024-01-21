@@ -1,10 +1,10 @@
 const getDBDetails = require('../utils/getDBDetails');
 const getAPIDetails = require('../utils/getAPIDetails');
 
+const uuidv4_Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
 const getDetails = async (id) => {
         let driverDetail = [];
-        
-        const uuidv4_Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
         if(uuidv4_Regex.test(id)) {
             driverDetail = await getDBDetails(id);

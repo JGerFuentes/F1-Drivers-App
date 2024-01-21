@@ -2,31 +2,24 @@ const getApiData = require('../utils/getApiData');
 const { Driver, Team } = require('../db.js');
 const fusionFunction = require('../utils/fusionFunction.js');
 
-const getDrivers = async (req, res) => {
+const defaultImage = 'https://i.imgur.com/dcYOuPn.jpg'
+const regex = /\b((?<!\by\s)\b[A-Za-zÀ-ÖØ-öø-ÿ\s.-]+)\b/g;
+
+const getDrivers = async () => {
     try {
-        //Recuperación de drivers de la API
+        //Retrieving API drivers
+        let apiDriversArray = await getApiData();
 
-        //Almaceno el array de objetos en la variable 'apiDrivers'
-        let apiDrivers = await getApiData();
-
-        apiDrivers = apiDrivers.map((driver) => {
-            //Si el driver no tiene una imagen, le defino una por default.
+        apiDriversArray = apiDriversArray.map((driver) => {
             if (!driver.image || !driver.image.url) {
-                driver.image.url = "https://i.imgur.com/jkYqmU9.png";
+                driver.image.url = defaultImage;
             } 
-            
-            //Si el driver no tiene descripción le asigno un string vacío.
             if (!driver.description) {
                 driver.description = 'Description not available.';
             } 
 
-            //REGEX recuperada de la función 'getApiTeams'.
-            const regex = /\b((?<!\by\s)\b[A-Za-zÀ-ÖØ-öø-ÿ\s.-]+)\b/g;
-
-            //Controlo la existencia de valores en la propiedad 'teams', si existe los descompongo en un array de strings y lo almacena en la variable 'driverTeams' para asignarlo después. Si no existe la propiedad o está vacía lo declaro como un string vacío.
             let driverTeams = driver.teams ? driver.teams.match(regex) : ['Teams info not available'];
 
-            //Retorno un objeto con todas las propiedades requeridas para cada driver mapeado.
             return {
                 driver_id: driver.id,
                 driver_name: driver.name.forename,
@@ -40,30 +33,24 @@ const getDrivers = async (req, res) => {
             }
         });
 
-        //Recuperación de drivers de la DB.
-
-        //Almaceno en la variable 'dbDrivers' todo lo que se encuentre en la tabla 'Drivers' de la DB.
-        let dbDrivers = await Driver.findAll({
-            //Como no alcanza sólo con asociar el modelo, debo filtrar la respuesta para que me retorne un sólo elemento con una propiedad donde se encuentren todos los teams asociados.
+        //Retrieving DB drivers
+        let dbDriversArray = await Driver.findAll({
             include: [{
-                model: Team, //Asociación con el modelo 'Team'
-                attributes: ['team_name'], //Selecciono sólo el atributo 'team_name'
+                model: Team,
+                attributes: ['team_name'],
                 through: {
-                    attributes: [] //Descarto cualquier atributo adicional de la tabla intermedia, que Sequelize incluye por defecto.
+                    attributes: []
                 }
             }],
             raw: true
-        })
-          
-        //Aplico la 'fusionFunction' al array obtenido para realizar las modificaciones necesarias y recibir un arreglo con la misma estructura que el de 'apiDrivers'.
-        dbDrivers = fusionFunction(dbDrivers);
+        });
 
-        //Construyo con spread syntax el arreglo con todos los drivers
-        let allDrivers = [...dbDrivers, ...apiDrivers];
+        dbDriversArray = fusionFunction(dbDriversArray);
+
+        let allDriversArray = [...dbDriversArray, ...apiDriversArray];
         
-        //Si el array contiene información lo retorno sino envío un mensaje de error apropiado.
-        if (allDrivers.length > 0) {
-            return allDrivers;
+        if (allDriversArray.length > 0) {
+            return allDriversArray;
         } else {
             throw new Error ('Problems while trying to fetch your drivers. Sorry pal 😕');
         }
