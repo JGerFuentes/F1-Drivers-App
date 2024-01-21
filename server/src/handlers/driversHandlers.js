@@ -21,7 +21,6 @@ const getDriversHandler = async (req, res) => {
 const getDetailsHandler =  async (req, res) => {
     try {
         const { id } = req.params;
-        
         const idToNumber = Number(id);
         const uuidv4_Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -32,7 +31,11 @@ const getDetailsHandler =  async (req, res) => {
             return res.status(400).json( { message: 'Invalid ID. Please, try another one.' })
         }
     } catch (error) {
-        return res.status(500).json({ message: 'Detail not found.' })
+        if (error.message === 'Detail not found.') {
+            return res.status(404).json({ message: 'Detail not found.' });
+          }
+        return res.status(500).json({ message: 'Internal server error.' });
+        // return res.status(500).json({ message: 'Detail not found.' })
     }
 }
 

@@ -4,6 +4,7 @@ const getAPIDetails = require('../utils/getAPIDetails');
 const uuidv4_Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 const getDetails = async (id) => {
+    try {
         let driverDetail = [];
 
         if(uuidv4_Regex.test(id)) {
@@ -14,10 +15,13 @@ const getDetails = async (id) => {
         }
 
         if (driverDetail.length > 0){
-            return driverDetail
+            return driverDetail;
         } else {
-            return ({ error: error.message })
+            throw new Error ('Detail not found.');
         }
+    } catch (error) {
+        throw error;
+    }
 }
 
 module.exports = getDetails;

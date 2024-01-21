@@ -6,7 +6,7 @@ const postDriver = async (req, res) => {
     const { driver_name, lastname, nationality, image, dob, description, teams } = req.body; 
 
     if(!driver_name || !lastname || !nationality || !image || !dob || !description || !teams) {
-        throw new Error ('Missing fields. Please, double-check your inputs 👁‍🗨⌨')
+        throw new Error ('Missing fields. Please, double-check your inputs ☠.')
     };
 
     const newDriver = await Driver.create({
@@ -22,13 +22,9 @@ const postDriver = async (req, res) => {
 
     arrayPkTeams.forEach(team => newDriver.addTeam(team)); 
     
-    if (newDriver) {
-        return newDriver;
-    } else {
-        throw new Error ('Error while trying to create the driver ☠')
-    }
+    return newDriver;
    } catch (error) {
-        return ({ error: error.message });
+        throw error;
    }
 }
 module.exports = postDriver;
