@@ -28,7 +28,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
   let driversToShow = []
   
 
-  //Rendering control in case of active searching.
+  //Rendering control in case of active searching mode.
   useEffect(()=>{
     if (pathname.search) {
       setSearching(true);

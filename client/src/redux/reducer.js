@@ -1,8 +1,8 @@
 import { GET_DRIVERS, GET_TEAMS, ADD_DRIVER, ORDER_DRIVERS, FILTER_DRIVERS } from "./action-types";
 
 const initialState = {
-    arrayDrivers: [], //Array de objetos.
-    arrayTeams: [], //Array de strings.
+    arrayDrivers: [],
+    arrayTeams: [],
     filteredAndOrderedDrivers:[],
 };
 

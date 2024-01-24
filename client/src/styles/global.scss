@@ -62,6 +62,10 @@
     margin: 0.2em;
     padding: 0.3em;
 
+    @include lg {
+      font-size: 1.6em;
+    }
+
     @include md {
       font-size: 1.5em;
       margin: 0.1em;

@@ -10,7 +10,6 @@ import Form from './components/Form/Form';
 import Detail from './components/Detail/Detail';
 import About from './components/About/About';
 import Error from './components/Error/Error';
-// import './App.css'
 const URL = 'http://localhost:3001/drivers'
 
 const App = () => {
@@ -45,8 +44,7 @@ const App = () => {
         navigate(`/home?name=${name}`)
       }
     } catch (error) {
-      window.alert("Sorry, but there are no matches for your input.");
-      
+      window.alert("Sorry, but there are no matches for your input.");   
       return ({ error: error.message });
     }
   }

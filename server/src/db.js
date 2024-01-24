@@ -26,15 +26,13 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-//Models presentation
 const { Driver, Team } = sequelize.models;
 
-//Models rlationships
 Driver.belongsToMany(Team, { through: 'Drivers_Teams' });
 Team.belongsToMany(Driver, { through: 'Drivers_Teams' });
 
 
 module.exports = {
-  ...sequelize.models, //To import models like: const { Product, User } = require('./db.js');
-  conn: sequelize,     //To import connection like: { conn } = require('./db.js');
+  ...sequelize.models,
+  conn: sequelize,
 };

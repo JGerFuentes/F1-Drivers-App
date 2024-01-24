@@ -30,14 +30,14 @@ const Detail = () => {
   }, [id])
 
   return (
-    <div className={styles.detail_container}>
+    <div className={styles.detail_container} key={driver.driver_id}>
       {driver.driver_name && (
         <>
         <div className={styles.container_1}>
           <div id={styles.name_wrapper}>
             <h2>{driver.driver_name}</h2>
             <h2>{driver.lastname}</h2>
-            <img src={driver.image} alt={driver.lastname}/>
+            <img src={driver.image} title={`${driver.lastname}'s pic`} alt={`${driver.lastname}'s pic`}/>
           </div>
 
           <div className={styles.container_2}>

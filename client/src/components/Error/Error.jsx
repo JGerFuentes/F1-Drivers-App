@@ -2,18 +2,18 @@ import styles from './Error.module.scss';
 
 const Error = () => {
   return (
-    <div className="errorPage_container">
+    <div className={styles.errorPage}>
       <h2>Like Schrödinger's cat, this page may or may not be around...</h2>
 
-      <img src="https://i.imgur.com/VC1xvyn.gif" title="404_cat_status" alt="page_not_found" height="200em" width="250em"/>
+      <img src="https://i.imgur.com/VC1xvyn.gif" title="404_cat_status" alt="404_cat_status" />
 
-      <h4>
+      <p>
           So... your page was not found... Sorry pal 😔
           <br/>
           Please, try again later or double check that you got the right URL.
           <br/>
           Keep rolling! 🤘
-      </h4>
+      </p>
     </div>
   )
 }

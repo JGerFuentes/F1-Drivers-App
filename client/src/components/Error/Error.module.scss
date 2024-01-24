@@ -1,0 +1,84 @@
+@import '../../styles/variables.scss';
+@import '../../styles/wallpapers.scss';
+
+.errorPage {
+    display: flex;
+    flex-flow: column wrap;
+    column-gap: 1em;
+    align-items: center;
+    justify-content: center;
+    background-image: $background-image-landingpage;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-weight: bolder;
+    font-size: 1.8em;
+
+    img {
+        height: 20em;
+        width: 25em;
+        border-radius: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.3em;
+
+        @include lg {
+            height: 12em;
+            width: 12.5em;
+        }
+
+        @include md {
+            height: 10em;
+            width: 10.5em;
+        }
+
+        @include sm {
+            height: 10em;
+            width: 10.5em;
+        }
+    }
+
+    h2 {
+        font-weight: bolder;
+        color: $black;
+        background-color: $background-container-color2;
+        border-radius: 0.5em;
+        margin: 0.3em;
+
+        @include lg {
+            font-size: 1.5em;
+        }
+
+        @include md {
+            font-size: 0.9em;
+        }
+
+        @include sm {
+            font-size: 0.8em;
+        }
+    }
+
+    p {
+        color: $aux-color-1;
+        background-color: $background-container-color;
+        border-radius: 1em;
+        padding: 0.3em;
+        margin: 0.3em;
+        font-size: 1.4em;
+        text-align: center;
+
+        @include lg {
+            font-size: 1.3em;
+        }
+
+        @include md {
+            font-size: 0.9em;
+        }
+
+        @include sm {
+            font-size: 0.8em;
+        }
+    }
+}

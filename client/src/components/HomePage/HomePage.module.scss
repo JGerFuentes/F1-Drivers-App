@@ -52,8 +52,12 @@
     label {
       font-weight: light;
       font-size: 1.4em;
+      font-weight: bold;
+      background-color: $background-container-color;
+      border-radius: 0.3em;
+      color: $aux-color-1;
       margin: 0.5em;
-      padding: 0.3em;
+      padding: 0.4em;
 
       @include lg {
         font-size: 1.3em;
@@ -121,31 +125,44 @@
       font-weight: bold;
       margin: 0.3em;
 
+      cursor: pointer;
+
+      &:hover {
+        color: $hover-color2;
+        font-size: 1.5em;
+      }
+
+      &:active {
+        color: $button-text-color;
+      }
+
       @include lg {
         font-size: 1.3em;
+        &:hover {
+          font-size: 1.35em;
+        }
       }
 
       @include md {
         font-size: 1em;
+        &:hover {
+          font-size: 1.05em;
+        }
       }
 
       @include sm {
         font-size: 1em;
         margin: 0.2em;
-      }
-
-      cursor: pointer;
-      &:hover {
-        color: $hover-color2;
-      }
-      &:active {
-        color: $button-text-color;
+        &:hover {
+          font-size: 1.05em;
+        }
       }
     }
   }
 
   .nav_buttons {
-    display: flex;
+    margin: 0.3em;
+    padding: 0.3em;
 
     button {
       background-color: $background-container-color;

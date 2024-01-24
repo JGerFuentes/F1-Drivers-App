@@ -55,6 +55,9 @@
                 height: 13em;
                 width: 13.5em;
                 border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
     
                 @include lg {
                     height: 12em;

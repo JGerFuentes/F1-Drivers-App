@@ -6,7 +6,7 @@ const fusionFunction = (dbDriversArray) => {
         if (!existingDriver) {
             const newDriver = {
                 pk: driver.pk, 
-                driver_id: driver.pk, //Created for rendering purposes.
+                driver_id: driver.pk,
                 driver_name: driver.driver_name,
                 lastname: driver.lastname,
                 image: driver.image,

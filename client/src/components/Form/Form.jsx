@@ -10,8 +10,6 @@ const Form = ({ arrayTeams }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const [creation, setCreation] = useState(true);
-
   const [userInput, setUserInput] = useState({
     driver_name: '',
     lastname:'',
@@ -85,7 +83,6 @@ const Form = ({ arrayTeams }) => {
         );
         window.alert ('Congratulations! Your driver has been successfully created!')
         navigate('/home');
-        // setCreation(false);
       } catch (error) {
         window.alert (error.message)
       }
@@ -193,7 +190,7 @@ const Form = ({ arrayTeams }) => {
 
         {/* <div className={styles.nav_buttons}>
           {!creation && 
-            <button onClick={() => {setCreation(false); navigate('/home')}}>Back to the list</button>
+            <button onClick={() => {navigate('/home')}}>Back to the list</button>
           }
         </div> */}
 

@@ -10,7 +10,7 @@ export const getAllDrivers = () => {
 
             return dispatch({
                 type: GET_DRIVERS,
-                payload: data //Array de objetos.
+                payload: data
             });   
         } catch (error) {
             return ({ error: error.message });
@@ -26,7 +26,7 @@ export const getAllTeams = () => {
 
             return dispatch({
                 type: GET_TEAMS,
-                payload: data //Array de strings.
+                payload: data
             });
         } catch (error) {
             return ({ error: error.message })
@@ -43,7 +43,7 @@ export const addDriver = (driver) => {
                 type:ADD_DRIVER,
                 payload: data
             })
-            //Realizado con FETCH:
+            //Done with FETCH:
                 // const response = await fetch(`${URL}/drivers`, {
                 //     method: 'POST',
                 //     headers: {
@@ -65,9 +65,9 @@ export const addDriver = (driver) => {
 };
 
 export const orderDrivers = (order) => {
-    return { type: ORDER_DRIVERS, payload: order } //Order: Alfabético (lastname) || Numérico (dob)
+    return { type: ORDER_DRIVERS, payload: order }
 };
 
 export const filterDrivers = (filter) => {
-    return { type: FILTER_DRIVERS, payload: filter } // Filter: Teams || Origin (DB || API)
+    return { type: FILTER_DRIVERS, payload: filter }
 };

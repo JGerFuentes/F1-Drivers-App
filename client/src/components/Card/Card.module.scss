@@ -4,34 +4,152 @@
 
 .card {
     display: flex;
-    flex-flow: row wrap;
-    justify-content:space-evenly;
+    flex-flow: column nowrap;
+    justify-content: center;
+    justify-items: space-evenly;
     align-items: center;
     text-align: center;
-    padding: 1em;
-    width: 30em;
-    height: 27em;
+    padding: 0.5em;
+    margin: 0.3em;
+    width: 40em;
+    height: 55em;
     border-radius: 1em;
-    font-size: 0.9em;
-    background-color: $background-container-color;
-    
-    &:hover {
-        background-color: $background-container-color2;
+    border-color: $hover-color2;
+    border-style:double;
+    border-width: 0.4em;
+    background-color: $background-container-color2;
+
+    @include lg {
+        width: 35em;
+        height: 50em;
+        
+    }
+
+    @include md {
+        width: 24em;
+        height: 39em;
+    }
+
+    @include sm {
+        width: 15em;
+        height: 30em;
     }
     
-    .info_container {
-        img {
-            height: 15em;
-            width: 15em;
-            border-radius: 50%;
+    &:hover {
+        background-color: $white;
+        color: $hover-color2;
+        border-color: $aux-color-3;
+    }
+    
+    #name_wrapper {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content:space-evenly;
+        align-items: center;
+        text-align: center;
+        margin: 0.3em;
+        padding: 0.3em;
+
+        h2 {
+            padding:0;
+            margin:0;
+            font-size: 2.5em;
+            font-weight: bolder;
+    
+            @include lg {
+                font-size: 2em;
+            }
+    
+            @include md {
+                font-size: 1.9em;
+            }
+    
+            @include sm {
+                font-size: 1.5em;
+            }
         }
     }
 
-    .teams_container {
-        h4 {
-            color: $aux-color-4;
+    .info_container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content:space-evenly;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        padding: 0.3em;
+        column-gap: 3em;
+
+        @include md {
+            flex-flow: column wrap;
+        }
+
+        @include sm {
+            flex-flow: column wrap;
+        }
+
+        img {
+            height: 15em;
+            width: 15.5em;
+            border-radius: 50%;
+
+            @include lg {
+                height: 13em;
+                width: 13.5em;
+            }
+
+            @include md {
+                height: 11em;
+                width: 11.5em;
+            }
+
+            @include sm {
+                height: 10em;
+                width: 10.5em;
+            }
+        }
+        
+        #teams_wrapper {
+            justify-content:space-evenly;
+            align-items: center;
+            text-align: center;
+            padding: 0.3em;
+            
+            @include md {
+                display: flex;
+                flex-flow: row wrap;
+                justify-items: space-evenly;
+            }
+            
+            @include sm {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-evenly;
+            }
+            
+            h4 {
+                color: $white;
+                background-color: $background-container-color;
+                border-radius: 1em;
+                padding: 0.3em;
+                font-size: 1.5em;
+        
+                @include lg {
+                    font-size: 1.5em;
+                }
+        
+                @include md {
+                    font-size: 1.2em;
+                }
+        
+                @include sm {
+                    font-size: 1em;
+                }
+
+            }
         }
     }
+
 }
 
 

@@ -51,8 +51,8 @@ describe ("Route's tests", () => {
             expect(res.statusCode).toBe(400);
         });
 
-        it ('Should reply with status 200 if all body data fields are send', async () => {
-            const res = await agent.post('/drivers').send({driver_name: "value2", lastname: "value3", image: "value4", nationality: "value5", dob: "value6", description: "value7", teams: ['team1', 'team2', 'team3']});
+        it ('Should reply with status 200 if all body data fields are sent', async () => {
+            const res = await agent.post('/drivers').send({driver_name: "alfrel", lastname: "casero", image: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Alfredo-en-mallorca.jpg", nationality: "argentine", dob: "1962-11-12", description: "Alfredo Ángel Casero es un actor, comediante y cantante argentino.", teams: ['Ferrari', 'Mercedes', 'Aston Martin']});
             expect(res.statusCode).toBe(200);
         });
     })

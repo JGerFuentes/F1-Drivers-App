@@ -35,7 +35,6 @@ const getDetailsHandler =  async (req, res) => {
             return res.status(404).json({ message: 'Detail not found.' });
           }
         return res.status(500).json({ message: 'Internal server error.' });
-        // return res.status(500).json({ message: 'Detail not found.' })
     }
 }
 
