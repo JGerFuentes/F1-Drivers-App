@@ -30,7 +30,7 @@ const App = () => {
       dispatch(getAllTeams());
     }
 
-  }, [dispatch, pathname, arrayDrivers, arrayTeams]);
+  }, [pathname, arrayDrivers, arrayTeams]);
 
   const onSearch = async (name) => {
     try {

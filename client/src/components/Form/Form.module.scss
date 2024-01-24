@@ -15,13 +15,17 @@
 
     label {
         background-color: $aux-color-5;
-        border-radius: 1em;
+        border-radius: 0.8em;
         width: 10em;
         margin: 0.5em;
         padding: 0.4em;
         text-align: center;
         font-weight: bold;
-        font-size: 1em;
+        font-size: 1.5em;
+
+        @include lg {
+            font-size: 1.1em;
+        }
 
         @include md {
             width: 9em;
@@ -35,44 +39,60 @@
     }
 
     .text_input {
-        height: 1.3em;
-        width: 16em;
         border: none;
         border-radius: 0.5em;
         background-color: $white;
+        height: 2em;
+        width: 24em;
         font-family: inherit;
         font-weight: bold;
-        font-size: 0.85em;
+        font-size: 1.3em;
         text-align: start;
         padding-inline-start: 0.5em;
         color: $black;
 
         @include lg {
-            width: 18em;
+            width: 20em;
             height: 2em;
+            font-size: 0.95em;
         }
 
         @include md {
             width: 14em;
             height: 1.75em;
+            font-size: 0.85em;
         }
 
         @include sm {
             width: 13em;
             height: 1.4em;
+            font-size: 0.8em;
         }
     }
 
     #description_input {
         border: none;
         border-radius: 0.5em;
+        padding-inline-start: 0.5em;;
         background-color: $white;
         font-family: inherit;
-        font-size: 0.85em;
+        font-size: 1.4em;
         font-weight: bold;
         text-align: start;
-        padding-inline-start: 0.5em;;
-        color: $black;       
+        color: $black;
+
+        @include lg {
+            font-size: 0.95em;
+        }
+
+        @include md {
+            font-size: 0.85em;
+        }
+
+        @include sm {
+            font-size: 0.8em;
+        }
+
     }
     
     p {
@@ -82,11 +102,15 @@
         margin: 0.5em;
         align-items: center;
         border-radius: 1em;
-        background-color: $background-container-color2;
+        background-color: $white;
         color: $aux-color-3;
         text-align: center;
-        font-size: 1.1em;
+        font-size: 1.3em;
         font-weight: bolder;
+
+        @include lg {
+            font-size: 1.1em;
+        }
 
         @include md {
         font-size: 0.95em;
@@ -99,23 +123,28 @@
 
     h5 {
         background-color: $aux-color-5;
-        border-radius: 1em;
+        border-radius: 0.8em;
         width: 14em;
         margin: 0.5em;
         padding: 0.4em;        
         text-align: center;
         font-weight: bold;
-        font-size: 1em;
+        font-size: 1.5em;
         color: $white;
+        
+        @include lg {
+            font-size: 1.1em;
+            width: 12em;
+        }
 
         @include md {
-        font-size: 0.9em;
-        width: 12em;
+            font-size: 0.9em;
+            width: 12em;
         }
 
         @include sm {
-        font-size: 0.8em;
-        width: 12em;
+            font-size: 0.8em;
+            width: 12em;
         }
     }
 
@@ -137,13 +166,17 @@
             margin: 0.2em;
             text-align: center;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.5em;
             color: $black;
             background-color: transparent;
     
             &:hover {
                 background-color: $hover-color2;
                 color: $aux-color-1;
+            }
+
+            @include lg {
+            font-size: 1em;
             }
 
             @include md {

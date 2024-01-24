@@ -10,6 +10,8 @@ const Form = ({ arrayTeams }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // const [creation, setCreation] = useState(true);
+
   const [userInput, setUserInput] = useState({
     driver_name: '',
     lastname:'',
@@ -83,6 +85,7 @@ const Form = ({ arrayTeams }) => {
         );
         window.alert ('Congratulations! Your driver has been successfully created!')
         navigate('/home');
+        // setCreation(false);
       } catch (error) {
         window.alert (error.message)
       }
@@ -91,7 +94,6 @@ const Form = ({ arrayTeams }) => {
 
   return (
       <form onSubmit={handleSubmit} className={styles.form_container}>
-
         <label htmlFor="name">Name: </label>
           <input
             className={styles.text_input} 
@@ -114,7 +116,7 @@ const Form = ({ arrayTeams }) => {
             onChange={handleOnChange} 
             placeholder="Your driver's lastname..."
           />
-        <p className="error_message">{errors && errors.lastname}</p>
+        <p className="error_message">{errors.lastname}</p>
 
         <label htmlFor="nationality">Nationality: </label>
           <input
@@ -159,8 +161,8 @@ const Form = ({ arrayTeams }) => {
             name='description'
             value={userInput.description}
             onChange={handleOnChange}
-            rows={10}
-            columns={20}
+            rows={15}
+            cols={40}
             minLength={15}
             maxLength={2501}
             placeholder="Insert a brief description here..."
@@ -188,6 +190,13 @@ const Form = ({ arrayTeams }) => {
         </div>
         
         <button type='submit' disabled={Form.driver_name || Object.keys(errors).length}>Machine, create my driver!</button>
+
+        {/* <div className={styles.nav_buttons}>
+          {!creation && 
+            <button onClick={() => {setCreation(false); navigate('/home')}}>Back to the list</button>
+          }
+        </div> */}
+
       </form>
     
   )

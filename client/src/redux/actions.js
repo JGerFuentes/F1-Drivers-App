@@ -55,7 +55,7 @@ export const addDriver = (driver) => {
 
                 // return dispatch({
                 //     type: ADD_DRIVER,
-                //     payload: data, //Objeto
+                //     payload: data,
                 // })
         } catch (error) {
             return ({ error: error.message })

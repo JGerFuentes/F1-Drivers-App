@@ -10,9 +10,9 @@ const About = () => {
       <h4>A.K.A. JGerFuentes 🤘🏽</h4>
       
       <div>
-        <h5>My profiles: </h5>
-        <a href="https://www.linkedin.com/in/JGerFuentes" target="_blank"><img src="https://i.imgur.com/dBgRYCG.png" title="my_linkedIn" alt="linked_in_logo" /></a>
-        <a href="https://github.com/JGerFuentes" target="_blank"><img src="https://i.imgur.com/2Cp7VkW.png" title="my_github" alt="github_logo" /></a>
+        <h5>My links: </h5>
+        <a href="https://www.linkedin.com/in/JGerFuentes" target="_blank"><img className={styles.myLinks} src="https://i.imgur.com/dBgRYCG.png" title="my_linkedIn" alt="linked_in_logo" /></a>
+        <a href="https://github.com/JGerFuentes" target="_blank"><img className={styles.myLinks}src="https://i.imgur.com/2Cp7VkW.png" title="my_github" alt="github_logo" /></a>
       </div>
 
       <p>

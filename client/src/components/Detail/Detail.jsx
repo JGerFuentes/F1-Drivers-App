@@ -61,12 +61,18 @@ const Detail = () => {
           <h4>Source: API</h4>}
         </div>
 
-        <div className={styles.teams_wrapper}>
+        <div className={styles.teams_container}>
           <h3>Teams:</h3>
-          <h4>{driver.teams}</h4>
+          <div className={styles.teams_wrapper}>
+            {driver.teams?.map(team => {
+              return (
+                <h4>{team}</h4>
+              )
+              })}
+          </div>
         </div>
 
-        <div className={styles.description_wrapper}>
+        <div className={styles.description_container}>
           <h3>Description:</h3> 
           <p>{driver.description}</p>
         </div>

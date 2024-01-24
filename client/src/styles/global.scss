@@ -30,8 +30,8 @@
   body {
     margin: 0;
     padding: 0;
-    min-width: 310px;
-    min-height: auto;
+    min-width: 300px;
+    min-height: 100vh;
   }
   
   h1 {
@@ -39,15 +39,19 @@
     font-size: 3em;
     line-height: 1.1;
     text-align: center;
-    margin: 0.3em;
-    padding: 0.2em;
+    margin: 0.2em;
+    padding: 0.3em;
 
-    @include md {
+    @include lg {
       font-size: 2.7em;
     }
 
-    @include sm {
+    @include md {
       font-size: 2.5em;
+    }
+
+    @include sm {
+      font-size: 2.4em;
     }
   }
 
@@ -114,10 +118,14 @@
     margin: 0.5em;
     border: 1px solid $button-border-color;
     background-color: $background-container-color;
-    font-size: 1.05em;
-    font-weight: 400;
+    font-size: 1.75em;
+    font-weight: bold;
     font-family: inherit;
     
+    @include lg {
+    font-size: 1.5em;
+    }
+
     @include md {
       font-size: 1em;
     }
@@ -149,7 +157,7 @@ footer {
   padding: 0.25em;
   background-color: $black;
   font-family: $k2d;
-  font-size: 0.75em;
+  font-size: 1.15em;
   color: $white;
 
   @include md {

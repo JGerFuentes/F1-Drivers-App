@@ -6,8 +6,8 @@ import pageLinkersGenerator from '../../utils/pageLinkersGenerator';
 import { orderDrivers, filterDrivers } from '../../redux/actions';
 import styles from './HomePage.module.scss';
 
-const driversToRender = 9; //Cantidad de drivers a renderizar según el paginado indicado para el componente 'HomePage'.
-const searching_pagination = 15; //Cantidad de drivers a renderizar para el caso de búsquedas realizadas por el usuario.
+const driversToRender = 9;
+const searching_pagination = 15;
 
 const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
   let driversToShow = []
   
 
-  //Manejo de la renderización en caso de estado de búsqueda activa.
+  //Rendering control in case of active searching.
   useEffect(()=>{
     if (pathname.search) {
       setSearching(true);
@@ -44,7 +44,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
     dispatch(orderDrivers(order));
   }, [filter, order])
 
-  //Bloque para la paginación de los elementos a renderizar.
+  //Pagination block.
   if (searching === true) {
     driversToShow = searchedDrivers.slice(0, searching_pagination);
   } else if (aux === true){
@@ -54,29 +54,24 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
     driversToShow = searchedDrivers.slice(startIndex, endIndex);
   }
 
-  //Handler para el seteo de la página en visualización.
   const pageHandler = (page) => {
     setCurrentPage(page);
   };
 
-  //Handler para ir a la página anterior (si no estamos en la primera página).
   const previousPageHandler = () => {
     if (currentPage > 1) {
       pageHandler(currentPage - 1)
     }
   };
 
-  //Handler para ir a la página siguiente.
   const nextPageHandler = () => {
     pageHandler(currentPage + 1)
   };
 
-  //Función para ir a una página específica seleccionada por el usuario mediante un 'click event'.
   const goToPage = (page) => {
     pageHandler(page);
   };
 
-  //Invocación de la función 'pageLinkersGenerator' de la carpeta 'utils'.
   const linksGenerator = pageLinkersGenerator(currentPage, totalPages, goToPage);
   
   const handleFilter = (event) => {
@@ -103,7 +98,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
 
       {!searching && 
         <div className={styles.filters_and_sort}>
-          <div className={styles.wrapper}>
+          <div className={styles.f_s_wrapper}>
             <h4>FILTER DRIVERS:</h4>
 
             <label key='teamFilter'> Team
@@ -128,7 +123,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
             </label>
           </div>
 
-          <div className={styles.wrapper}>
+          <div className={styles.f_s_wrapper}>
             <h4>SORT DRIVERS:</h4>
 
             <label key='lastnameOrder'> Lastname

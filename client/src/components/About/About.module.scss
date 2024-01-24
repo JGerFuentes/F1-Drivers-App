@@ -14,38 +14,79 @@
     background-size: cover;
     color: $black;
     font-weight: bolder;
+    font-size: 1.8em;
 
     h2 {
         font-weight: bolder;
+
+        @include lg {
+            font-size: 1.5em;
+        }
+
+        @include md {
+            font-size: 0.9em;
+        }
+
+        @include sm {
+            font-size: 0.8em;
+        }
     }
 
     h3 {
-        color: $white;
+        color: $aux-color-1;
         background-color: $background-container-color;
-        border-radius: 8em;
-        padding: 0.3em;
+        border-radius: 1em;
+
+        @include lg {
+            font-size: 1.5em;
+        }
+
+        @include md {
+            font-size: 0.9em;
+        }
+
+        @include sm {
+            font-size: 0.8em;
+        }
     }
+
     h4{
-        color: $white;
+        color: $aux-color-1;
         background-color: $background-container-color;
-        border-radius: 8em;
+        border-radius: 1em;
         padding: 0.3em;
+
+        @include lg {
+            font-size: 1.3em;
+        }
+
+        @include md {
+            font-size: 0.9em;
+        }
+
+        @include sm {
+            font-size: 0.8em;
+        }
     }
 
     h5 {
         font-weight: bolder;
-        font-size: 1.2em;
+        font-size: 1.3em;
         text-align: center;
         margin: 0.3em;
         padding: 0.2em;
         color: $black;
 
+        @include lg {
+            font-size: 1.1em;
+        }
+
         @include md {
-        font-size: 1em;
+        font-size: 0.9em;
         }
 
         @include sm {
-        font-size: 0.85em;
+        font-size: 0.8em;
         }
     }
 
@@ -80,9 +121,23 @@
         background-color: $background-container-color2;
         border-radius: 1em;
         
-        img {
-            height: 5em;
-            width: 5em;
+        .myLinks {
+            height: 7em;
+            width: 7em;
+            border-radius: 0.5em;
+
+            &:hover {
+                background-color: $aux-color-6;
+            }
+
+            &:active {
+                background-color: $aux-color-3;
+            }
+
+            @include lg {
+                height: 5em;
+                width: 5em;
+            }
 
             @include md {
                 height: 4em;
@@ -96,67 +151,220 @@
         }
 
         #logo_1 {
-            height: 1.87em;
-            width: 1.9em;
+            height: 2.3em;
+            width: 2.5em;
+
+            @include lg {
+                height: 2.27em;
+                width: 2.2em;
+            }
+            
+            @include md {
+                height: 1.87em;
+                width: 1.9em;
+            }
+
+            @include sm {
+                height: 1.87em;
+                width: 1.9em;
+            }
         }
 
         #logo_2 {
-            height: 1.87em;
-            width: 1.9em;
+            height: 2.3em;
+            width: 2.5em;
+
+            @include lg {
+                height: 2.27em;
+                width: 2.2em;
+            }
+            
+            @include md {
+                height: 1.87em;
+                width: 1.9em;
+            }
+
+            @include sm {
+                height: 1.87em;
+                width: 1.9em;
+            }
         }
 
         #logo_3 {
-            height:1.87em;
-            width:1.5em;
+            height: 2.3em;
+            width: 2.2em;
+
+            @include lg {
+                height: 2.27em;
+                width: 1.9em;
+            }
+
+            @include md {
+                height:1.87em;
+                width:1.5em;
+            }
+
+            @include sm {
+                height:1.87em;
+                width:1.5em;
+            }
         }
 
         #logo_4 {
-            height: 1.87em;
-            width: 2.5em;
+            height: 2.3em;
+            width: 3.2em;
+
+            @include lg {
+                height: 2.27em;
+                width: 2.9em;
+            }
+
+            @include md {
+                height: 1.87em;
+                width: 2.5em;
+            }
+
+            @include sm {
+                height: 1.87em;
+                width: 2.5em;
+            }
         }
 
         #logo_5 {
-            height: 1.87em;
-            width: 1.9em;
+            height: 2.3em;
+            width: 2.6em;
+            
+            @include lg {
+                height: 2.27em;
+                width: 2.3em;
+            }
+
+            @include md {
+                height: 1.87em;
+                width: 1.9em;
+            }
+
+            @include sm {
+                height: 1.87em;
+                width: 1.9em;
+            }
         }
 
         #logo_6 {
-            height: 1.6em;;
-            width: 5.2em;
+            height: 2.3em;
+            width: 5.9em;
+
+            @include lg {
+                height: 2em;
+                width: 5.6em;
+            }
+
+            @include md {
+                height: 1.6em;;
+                width: 5.2em;
+            }
+
+            @include sm {
+                height: 1.6em;;
+                width: 5.2em;
+            }
         }
 
         #logo_7 {
-            height: 1.87em;
-            width: 3.5em;
+            height: 2.3em;
+            width: 4.2em;
+            
+            @include lg {
+                height: 2.27em;
+                width: 3.9em;
+            }
+
+            @include md {
+                height: 1.87em;
+                width: 3.5em;
+            }
+
+            @include sm {
+                height: 1.87em;
+                width: 3.5em;
+            }
         }
 
         #logo_8{
-            height: 1.8em;
-            width: 4.75em;
+            height: 2.5em;
+            width: 5.45em;
+
+            @include lg {
+                height: 2.2em;
+                width: 5.15em;
+            }
+
+            @include md {
+                height: 1.8em;
+                width: 4.75em;
+            }
+
+            @include sm {
+                height: 1.8em;
+                width: 4.75em;
+            }
         }
 
         #logo_9 {
-            height:5em;
-            width:5.3em;
+            height: 5.7em;
+            width: 6em;
+
+            @include lg {
+                height: 5.4em;
+                width: 5.7em;
+            }
+
+            @include md {
+                height: 5em;
+                width: 5.3em;
+            }
+
+            @include sm {
+                height: 5em;
+                width: 5.3em;
+            }
         }
 
         #logo_10 {
-            height: 2.5em;
-            width:5.3em;
+            height: 3.2em;
+            width: 6em;
+
+            @include lg {
+                height: 2.9em;
+                width: 5.7em;
+            }
+
+            @include md {
+                height: 2.5em;
+                width: 5.3em;    
+            }
+
+            @include sm {
+                height: 2.5em;
+                width: 5.3em;    
+            }
         }
     }
 
     p {
-        font-size: 1em;
+        font-size: 1.2em;
         margin:auto;
-        padding: 1.5em;
+        padding: 1em;
         align-items: center;
         justify-content: center;
-        color: $white;
+        text-align: center;
+        color: $aux-color-1;
         background-color: $background-container-color;
         border-radius: 1em;
-        padding: 0.5em;
-        margin: 0.5em;
+
+        @include lg {
+            font-size: 1.1em;
+        }
 
         @include md {
             font-size: 0.95em;;

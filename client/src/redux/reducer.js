@@ -15,9 +15,13 @@ const reducer = (state=initialState, { type, payload }) => {
             };
         
         case GET_TEAMS:
+            let orderTeams = payload.sort( (a,b) => {
+                return a.localeCompare(b)
+            })
+
             return {
                 ...state,
-                arrayTeams: payload
+                arrayTeams: orderTeams
             };
 
         case ADD_DRIVER:

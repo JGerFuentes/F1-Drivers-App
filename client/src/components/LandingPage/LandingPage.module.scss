@@ -4,7 +4,7 @@
 
 .landing_container {
   display: grid;
-  min-height: 96.4vh;
+  min-height: 96.7vh;
   background-image: $background-image-landingpage;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
       grid-column: 1 / 2;
       margin: auto;
       font-weight: bolder;
-      font-size: 1.15em;
+      font-size: 1.25em;
       justify-items: center;
       display: grid;
       grid-template-rows: repeat(4, auto);
@@ -24,7 +24,10 @@
       grid-auto-flow: column;
       grid-auto-columns: auto;
     
-  
+      @include lg {
+        font-size: 1.15em;
+      }
+
       @include md {
         font-size: 1em;
       }
@@ -49,18 +52,64 @@
         grid-column: 1;
         grid-row: 1;
         color: $aux-color-1;
+        font-size: 1.75em;
+
+        @include lg {
+          font-size: 1.5em;
+          }
+        
+        @include md {
+          font-size: 1em;
+        }
+        
+        @include sm {
+          display: flex;
+          flex-flow: column wrap;
+          font-size: 0.9em;
+        }
+        
       }
         
       #div2 {
         grid-column: 2;
         grid-row: 2;
         color: $aux-color-2;
+        font-size: 1.75em;
+
+        @include lg {
+          font-size: 1.5em;
+          }
+        
+        @include md {
+          font-size: 1em;
+        }
+        
+        @include sm {
+          display: flex;
+          flex-flow: column wrap;
+          font-size: 0.9em;
+        }
       }
         
       #div3 {
         grid-column: 3;
         grid-row: 3;
         color: $aux-color-3;
+        font-size: 1.75em;
+
+        @include lg {
+          font-size: 1.5em;
+          }
+
+        @include md {
+          font-size: 1em;
+        }
+        
+        @include sm {
+          display: flex;
+          flex-flow: column wrap;
+          font-size: 0.9em;
+        }
       }
       
       #button {

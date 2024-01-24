@@ -8,7 +8,9 @@ const Navbar = ({onSearch}) => {
     return (
         <nav className={styles.navbar_container}>
             <div className={styles.logo}>
-                <img src={f1_logo} title='Home' alt="f1_logo"/>
+                <Link to='/home'>
+                    <img src={f1_logo} title='Home' alt="f1_logo"/>
+                </Link>
             </div>
 
             <div className={styles.secondSection}>
