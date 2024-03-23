@@ -11,8 +11,8 @@ const About = () => {
       
       <div>
         <h5>My links: </h5>
-        <a href="https://www.linkedin.com/in/JGerFuentes" target="_blank"><img className={styles.myLinks} src="https://i.imgur.com/dBgRYCG.png" title="my_linkedIn" alt="linked_in_logo" /></a>
-        <a href="https://github.com/JGerFuentes" target="_blank"><img className={styles.myLinks}src="https://i.imgur.com/2Cp7VkW.png" title="my_github" alt="github_logo" /></a>
+        <a href="https://www.linkedin.com/in/JGerFuentes" target="_blank"><img className={styles.myLinks_1} src="https://i.imgur.com/ZPBNQmf.png" title="my_linkedIn" alt="linked_in_logo" /></a>
+        <a href="https://github.com/JGerFuentes" target="_blank"><img className={styles.myLinks_2} src="https://i.imgur.com/2Cp7VkW.png" title="my_github" alt="github_logo" /></a>
       </div>
 
       <p>
@@ -34,7 +34,7 @@ const About = () => {
           <img id={styles.logo_6} src="https://i.imgur.com/4j4J7sL.png" title="redux_logo" alt="redux_logo" />
           <img id={styles.logo_7} src="https://i.imgur.com/acLgwdD.png" title="nodejs_logo" alt="nodejs_logo" />
           <img id={styles.logo_8} src="https://i.imgur.com/LcWGWHX.png" title="express_logo" alt="express_logo" />
-          <img id={styles.logo_9} src="https://i.imgur.com/QTksvlm.png" title="sequelize_logo" alt="sequelize_logo" />
+          <img id={styles.logo_9} src="https://imgur.com/kMRrUbX.png" title="sequelize_logo" alt="sequelize_logo" />
           <img id={styles.logo_10} src="https://i.imgur.com/yNGQH6S.png" title="postgres_logo" alt="postgres_logo" />
         </div>
         </div>
