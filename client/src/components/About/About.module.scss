@@ -121,9 +121,9 @@
         background-color: $background-container-color2;
         border-radius: 1em;
         
-        .myLinks {
-            height: 7em;
-            width: 7em;
+        .myLinks_1 {
+            height: 3em;
+            width: 10em;
             border-radius: 0.5em;
 
             &:hover {
@@ -135,18 +135,47 @@
             }
 
             @include lg {
-                height: 5em;
-                width: 5em;
+                height: 2.5em;
+                width: 9.5em;
             }
 
             @include md {
+                height: 2em;
+                width: 9em;
+            }
+
+            @include sm {
+                height: 1.75em;
+                width: 8em;
+            }
+        }
+
+        .myLinks_2 {
+            height: 4.5em;
+            width: 4.5em;
+            border-radius: 0.5em;
+
+            &:hover {
+                background-color: $aux-color-6;
+            }
+
+            &:active {
+                background-color: $aux-color-3;
+            }
+
+            @include lg {
                 height: 4em;
                 width: 4em;
             }
 
-            @include sm {
+            @include md {
                 height: 3em;
                 width: 3em;
+            }
+
+            @include sm {
+                height: 2em;
+                width: 2em;
             }
         }
 
@@ -251,22 +280,22 @@
         }
 
         #logo_6 {
-            height: 2.3em;
+            height: 1.8em;
             width: 5.9em;
 
             @include lg {
-                height: 2em;
+                height: 1.7em;
                 width: 5.6em;
             }
 
             @include md {
-                height: 1.6em;;
+                height: 1.4em;;
                 width: 5.2em;
             }
 
             @include sm {
-                height: 1.6em;;
-                width: 5.2em;
+                height: 1.4em;;
+                width: 5em;
             }
         }
 
@@ -291,62 +320,62 @@
         }
 
         #logo_8{
-            height: 2.5em;
+            height: 1.75em;
             width: 5.45em;
 
             @include lg {
-                height: 2.2em;
+                height: 1.5em;
                 width: 5.15em;
             }
 
             @include md {
-                height: 1.8em;
-                width: 4.75em;
+                height: 1.3em;
+                width: 4.5em;
             }
 
             @include sm {
-                height: 1.8em;
-                width: 4.75em;
+                height: 1em;
+                width: 3.8em;
             }
         }
 
         #logo_9 {
-            height: 5.7em;
+            height: 2em;
             width: 6em;
 
             @include lg {
-                height: 5.4em;
+                height: 1.8em;
                 width: 5.7em;
             }
 
             @include md {
-                height: 5em;
-                width: 5.3em;
+                height: 1.5em;
+                width: 4.75em;
             }
 
             @include sm {
-                height: 5em;
-                width: 5.3em;
+                height: 1.5em;
+                width: 4.75em;
             }
         }
 
         #logo_10 {
-            height: 3.2em;
+            height: 2.75em;
             width: 6em;
 
             @include lg {
-                height: 2.9em;
-                width: 5.7em;
+                height: 2.5em;
+                width: 5.5em;
             }
 
             @include md {
-                height: 2.5em;
-                width: 5.3em;    
+                height: 2.15em;
+                width: 4.3em;    
             }
 
             @include sm {
-                height: 2.5em;
-                width: 5.3em;    
+                height: 2.10em;
+                width: 4em;    
             }
         }
     }
