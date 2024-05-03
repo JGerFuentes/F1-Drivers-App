@@ -38,7 +38,21 @@ const getDetailsHandler =  async (req, res) => {
     }
 }
 
+const deleteDriverHandler = async (req, res) => {
+    try {
+        const { id, origin } = req.body;
+
+        if (origin ==='api') return res.status(400).json({ message: "Sorry, you can't delete this driver" });
+
+        await deleteDriver(id);
+        return res.status(200).json({message: 'Driver deleted successfully'});
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
+
 module.exports = {
     getDriversHandler,
-    getDetailsHandler
+    getDetailsHandler,
+    deleteDriverHandler
 };
