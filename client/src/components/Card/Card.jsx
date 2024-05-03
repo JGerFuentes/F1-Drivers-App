@@ -22,8 +22,7 @@ const Card = ({driver_id, driver_name, lastname, image, dob, teams}) => {
             }) }
           </div>
         </div>
-          
-
+        
       </div>
     </Link>
   )
