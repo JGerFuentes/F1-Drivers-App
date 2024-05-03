@@ -7,20 +7,23 @@ const Card = ({driver_id, driver_name, lastname, image, dob, teams}) => {
       <div key={driver_id} className={styles.card}>
         
         <div id={styles.name_wrapper}>
-          <h2>{lastname},</h2>
-          <h2>{driver_name}</h2>
+          <h2>{lastname}, {driver_name}</h2>
         </div>
 
-        <div className={styles.info_container}>
+        <div id={styles.image_container}>
           <img src={image} alt={`${lastname}, ${driver_name}'s pic` }/>
-          <h3>Birthdate: {dob}</h3>
-          <div id={styles.teams_wrapper}>
-            { teams?.map((team, index) => {
-              return(
-                  <h4 key={index}>{team}</h4>
-              )
-            }) }
-          </div>
+        </div>
+
+        <div id={styles.dob_container}>
+          <h3>{dob}</h3>
+        </div>
+
+        <div id={styles.teams_wrapper}>
+          { teams?.map((team, index) => {
+            return(
+                <h4 key={index}>{team}</h4>
+            )
+          }) }
         </div>
         
       </div>

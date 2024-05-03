@@ -3,16 +3,16 @@
 @import '../../styles/wallpapers.scss';
 
 .card {
-    display: flex;
-    flex-flow: column nowrap;
+    // display: flex;
+    // flex-flow: column nowrap;
     justify-content: center;
     justify-items: space-evenly;
     align-items: center;
     text-align: center;
-    padding: 0.5em;
+    padding: 0.8em;
     margin: 0.3em;
-    width: 40em;
-    height: 55em;
+    width: 35em;
+    height: 45em;
     border-radius: 1em;
     border-color: $hover-color2;
     border-style:double;
@@ -20,18 +20,18 @@
     background-color: $background-container-color2;
 
     @include lg {
-        width: 35em;
-        height: 50em;
+        width: 30em;
+        height: 40em;
         
     }
 
     @include md {
         width: 24em;
-        height: 39em;
+        height: 35em;
     }
 
     @include sm {
-        width: 15em;
+        width: 18em;
         height: 30em;
     }
     
@@ -43,7 +43,7 @@
     
     #name_wrapper {
         display: flex;
-        flex-flow: column wrap;
+        flex-flow: row wrap;
         justify-content:space-evenly;
         align-items: center;
         text-align: center;
@@ -51,8 +51,7 @@
         padding: 0.3em;
 
         h2 {
-            padding:0;
-            margin:0;
+            padding:0.5em;
             font-size: 2.5em;
             font-weight: bolder;
     
@@ -70,14 +69,13 @@
         }
     }
 
-    .info_container {
+    #image_container {
         display: flex;
         flex-flow: row wrap;
         justify-content:space-evenly;
         align-items: center;
         text-align: center;
-        margin: auto;
-        padding: 0.3em;
+        padding: 0.5em;
         column-gap: 3em;
 
         @include md {
@@ -108,45 +106,76 @@
                 width: 10.5em;
             }
         }
-        
-        #teams_wrapper {
-            justify-content:space-evenly;
-            align-items: center;
-            text-align: center;
-            padding: 0.3em;
-            
-            @include md {
-                display: flex;
-                flex-flow: row wrap;
-                justify-items: space-evenly;
-            }
-            
-            @include sm {
-                display: flex;
-                flex-flow: row wrap;
-                justify-content: space-evenly;
-            }
-            
-            h4 {
-                color: $white;
-                background-color: $background-container-color;
-                border-radius: 1em;
-                padding: 0.3em;
-                font-size: 1.5em;
-        
-                @include lg {
-                    font-size: 1.5em;
-                }
-        
-                @include md {
-                    font-size: 1.2em;
-                }
-        
-                @include sm {
-                    font-size: 1em;
-                }
+    }
 
+    #dob_container {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content:space-evenly;
+        align-items: center;
+        text-align: center;
+        padding: 0.5em;
+        column-gap: 3em;
+
+        h3 {
+            padding:0;
+            margin:0;
+            font-size: 1.5em;
+            font-weight: bolder;
+    
+            @include lg {
+                font-size: 1.5em;
             }
+    
+            @include md {
+                font-size: 1.3em;
+            }
+    
+            @include sm {
+                font-size: 1.25em;
+            }
+        }
+    }
+
+    #teams_wrapper {
+        display: flex;
+        flex-flow: wrap row;
+        justify-content:space-evenly;
+        align-items: center;
+        text-align: center;
+        padding: 1em;
+        
+        @include md {
+            display: flex;
+            flex-flow: row wrap;
+            justify-items: space-evenly;
+        }
+        
+        @include sm {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+        }
+        
+        h4 {
+            color: $white;
+            background-color: $background-container-color;
+            border-radius: 1em;
+            padding: 0.5em;
+            font-size: 1.5em;
+    
+            @include lg {
+                font-size: 1.5em;
+            }
+    
+            @include md {
+                font-size: 1.2em;
+            }
+    
+            @include sm {
+                font-size: 1em;
+            }
+
         }
     }
 
