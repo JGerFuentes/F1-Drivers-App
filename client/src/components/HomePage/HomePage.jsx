@@ -103,7 +103,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
 
             <label key='teamFilter'> Team
                 <select onChange={handleFilter} value={filter}>
-                    <option key='allDrivers' value='allDrivers'>All drivers</option>
+                    <option key='allTeams' value='allTeams'>All teams</option>
                     {arrayTeams && arrayTeams.map((team) => {
                         return(
                             <option key={team} value={team}>
@@ -116,7 +116,7 @@ const HomePage = ({ arrayDrivers, arrayTeams, foundDrivers }) => {
 
             <label key='sourceFilter'> Source
                 <select onChange={handleFilter} value={filter}>
-                    <option key='allDrivers2' value='allDrivers'>All Drivers</option>
+                    <option key='allDrivers' value='allDrivers'>All Drivers</option>
                     <option key='DB' value='DB'>Database</option>
                     <option key='API' value='API'>API</option>
                 </select>
