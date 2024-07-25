@@ -1,27 +1,38 @@
 ![F1-SPA](/F1.svg)
 
-# **DRIVERS** | Proyecto Individual
+# DRIVERS APP
 
-## **📌 OBJETIVOS**
+## FEATURES
+-  Search drivers by Name or by Last name.
+-  Visualize drivers' most in-detailed information.
+-  Filter drivers by Team or by Source (API - DB).
+-  Sort drivers by Age or by Last name.
+-  Create a new driver.
+-  Customized Error page for wrong URLs.
 
--  Construir una Single Page Application utlizando las tecnologías: **React**, **Redux**, **Node**, **Express** y **Sequelize**.
--  Poner en práctica recursos básicos de estilos y diseño (UX : UI).
--  Afirmar y conectar los conceptos aprendidos en la carrera.
--  Aprender mejores prácticas.
--  Aprender y practicar el workflow de GIT.
--  Utilizar y practicar testing.
+## TECHNOLOGIES
+- **JavaScript**
+- **SASS/SCSS**
+- **React** / **Redux**
+- **NodeJS** / **Express**
+- **PostgreSQL** / **Sequelize**
+- **Jest**
 
-<br />
+## RUN APP
+- Clone this repository to your PC.
+- Open it with VSCode or your favorite IDE.
+- Install all dependencies.
+    ````
+    npm install
+    ````
+- Run the app in the terminal.
+    ````
+    npm start
+    ````
+- Open the [SPA URL](http://localhost:5173) in your browser to navigate de app.
 
----
-
-## **📖 ENUNCIADO GENERAL**
-
-La idea de este proyecto es construir una aplicación web a partir de la API [**drivers**] en la que se pueda:
-
--  Buscar corredores.
--  Visualizar la información de los corredores.
--  Filtrarlos.
--  Ordenarlos.
--  Dar de Alta (Crear) nuevo corredor.
----
+## SCREENSHOTS
+![Landing_page](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249022/LandingPage_1_wznwcq.png)
+![Details_view](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249018/DetailPage_sjaufi.png)
+![Form_page](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249015/CreationFormPage_1_vbvcw3.png)
+![Responsive_design](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249017/FullResponsive_tiwiqa.png)
