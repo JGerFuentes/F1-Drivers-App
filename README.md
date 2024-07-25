@@ -8,6 +8,7 @@
 -  Filter drivers by Team or by Source (API - DB).
 -  Sort drivers by Age or by Last name.
 -  Create a new driver.
+-  Customized Error page for wrong URLs.
 
 ## TECHNOLOGIES
 - **JavaScript**
@@ -29,3 +30,9 @@
     npm start
     ````
 - Open the [SPA URL](http://localhost:5173) in your browser to navigate de app.
+
+## SCREENSHOTS
+![Landing_page](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249022/LandingPage_1_wznwcq.png)
+![Details_view](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249018/DetailPage_sjaufi.png)
+![Form_page](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249015/CreationFormPage_1_vbvcw3.png)
+![Responsive_design](https://res.cloudinary.com/dgfnyw7u9/image/upload/v1720249017/FullResponsive_tiwiqa.png)
