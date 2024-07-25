@@ -6,7 +6,7 @@ const About = () => {
       <h2>Hello there! 👋🏽</h2>
       <h3>My name is José Germán Fuentes.</h3>
       
-      <img id={styles.profilePic} src="https://i.imgur.com/ItGxt4J.jpg" title="profilePic" alt="profilePic" />
+      <img id={styles.profilePic} src="https://res.cloudinary.com/dgfnyw7u9/image/upload/v1721890277/Perfil_1_Webp_gybxzu.webp" title="profilePic" alt="profilePic" />
       <h4>A.K.A. JGerFuentes 🤘🏽</h4>
       
       <div>
