@@ -11,6 +11,7 @@
 
 ## TECHNOLOGIES
 - **JavaScript**
+- **SASS/SCSS**
 - **React** / **Redux**
 - **NodeJS** / **Express**
 - **PostgreSQL** / **Sequelize**
