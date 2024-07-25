@@ -1,27 +1,30 @@
 ![F1-SPA](/F1.svg)
 
-# **DRIVERS** | Proyecto Individual
+# DRIVERS APP
 
-## **📌 OBJETIVOS**
+## FEATURES
+-  Search drivers by Name or by Last name.
+-  Visualize drivers' most in-detailed information.
+-  Filter drivers by Team or by Source (API - DB).
+-  Sort drivers by Age or by Last name.
+-  Create a new driver.
 
--  Construir una Single Page Application utlizando las tecnologías: **React**, **Redux**, **Node**, **Express** y **Sequelize**.
--  Poner en práctica recursos básicos de estilos y diseño (UX : UI).
--  Afirmar y conectar los conceptos aprendidos en la carrera.
--  Aprender mejores prácticas.
--  Aprender y practicar el workflow de GIT.
--  Utilizar y practicar testing.
+## TECHNOLOGIES
+- **JavaScript**
+- **React** / **Redux**
+- **NodeJS** / **Express**
+- **PostgreSQL** / **Sequelize**
+- **Jest**
 
-<br />
-
----
-
-## **📖 ENUNCIADO GENERAL**
-
-La idea de este proyecto es construir una aplicación web a partir de la API [**drivers**] en la que se pueda:
-
--  Buscar corredores.
--  Visualizar la información de los corredores.
--  Filtrarlos.
--  Ordenarlos.
--  Dar de Alta (Crear) nuevo corredor.
----
+## RUN APP
+- Clone this repository to your PC.
+- Open it with VSCode or your favorite IDE.
+- Install all dependencies.
+    ````
+    npm install
+    ````
+- Run the app in the terminal.
+    ````
+    npm start
+    ````
+- Open the [SPA URL](http://localhost:5173) in your browser to navigate de app.
