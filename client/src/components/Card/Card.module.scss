@@ -3,8 +3,8 @@
 @import '../../styles/wallpapers.scss';
 
 .card {
-    // display: flex;
-    // flex-flow: column nowrap;
+    display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     justify-items: space-evenly;
     align-items: center;

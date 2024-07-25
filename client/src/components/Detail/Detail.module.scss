@@ -5,6 +5,7 @@
 .detail_container {
     display: flex;
     flex-flow: column wrap;
+    min-height: 96.7vh;
     align-items: center;
     justify-content: center;
     background-image: $background-image-detail;
